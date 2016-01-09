@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Escaping: Predicting Poker Hands, Part 2 | CodeMySky&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="After">
+  <meta name="description" content="After collecting so many records, Tom decide to do some basic exploration. He decide to explore the distribution of the data first. By observing data carefully, he is finally able to get some insight">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Escaping: Predicting Poker Hands, Part 2">
 <meta property="og:url" content="http://xiaohan.me/2016/01/09/Escaping-Predicting-Poker-Hands-Part-2/index.html">
 <meta property="og:site_name" content="CodeMySky's Blog">
-<meta property="og:description" content="After">
-<meta property="og:updated_time" content="2016-01-08T03:29:24.000Z">
+<meta property="og:description" content="After collecting so many records, Tom decide to do some basic exploration. He decide to explore the distribution of the data first. By observing data carefully, he is finally able to get some insight">
+<meta property="og:updated_time" content="2016-01-08T10:32:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Escaping: Predicting Poker Hands, Part 2">
-<meta name="twitter:description" content="After">
+<meta name="twitter:description" content="After collecting so many records, Tom decide to do some basic exploration. He decide to explore the distribution of the data first. By observing data carefully, he is finally able to get some insight">
   
     <link rel="alternative" href="/atom.xml" title="CodeMySky&#39;s Blog" type="application/atom+xml">
   
@@ -101,7 +101,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/About-Me/" style="font-size: 10px;">About Me</a> <a href="/tags/Big-Data/" style="font-size: 20px;">Big Data</a> <a href="/tags/Escaping-Predicting-Poker-Hands/" style="font-size: 20px;">Escaping Predicting Poker Hands</a>
+						<a href="/tags/About-Me/" style="font-size: 10px;">About Me</a> <a href="/tags/Big-Data/" style="font-size: 20px;">Big Data</a> <a href="/tags/Escaping-Predicting-Poker-Hands/" style="font-size: 20px;">Escaping Predicting Poker Hands</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a>
 					</div>
 				</section>
 				
@@ -198,7 +198,104 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>After</p>
+        <p>After collecting so many records, Tom decide to do some basic exploration. He decide to explore the distribution of the data first. By observing data carefully, he is finally able to get some insight of the data and unveil the mystery of the card game.<br><a id="more"></a></p>
+<p><div id="main" style="height:400px;"></div></p>
+<script src="/js/echart/echarts.js"></script>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths: {
+            echarts: '/js/echart'
+        }
+    });
+
+    // 使用
+    require(
+        [
+            'echarts',
+            'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+        ],
+        function (ec) {
+            var myChart = ec.init(document.getElementById('main'));
+
+            var option = {
+                title : {
+                    text: 'Water',
+                    subtext: 'Im OK'
+                },
+                tooltip : {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['One','Two']
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {show: true, type: ['line', 'bar']},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                calculable : true,
+                xAxis : [
+                    {
+                        type : 'category',
+                        data : ['Jan.','q','w','e','r','y','u','i','o','l','z','x']
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value'
+                    }
+                ],
+                series : [
+                    {
+                        name:'evaop',
+                        type:'bar',
+                        data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+                        markPoint : {
+                            data : [
+                                {type : 'max', name: 'Max'},
+                                {type : 'min', name: 'Min'}
+                            ]
+                        },
+                        markLine : {
+                            data : [
+                                {type : 'average', name: 'Average'}
+                            ]
+                        }
+                    },
+                    {
+                        name:'NNNN',
+                        type:'bar',
+                        data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
+                        markPoint : {
+                            data : [
+                                {name : 'Max', value : 182.2, xAxis: 7, yAxis: 183, symbolSize:18},
+                                {name : 'Min', value : 2.3, xAxis: 11, yAxis: 3}
+                            ]
+                        },
+                        markLine : {
+                            data : [
+                                {type : 'average', name : 'Average'}
+                            ]
+                        }
+                    }
+                ]
+            };
+
+
+            // 为echarts对象加载数据
+            myChart.setOption(option);
+            $(window).resize(function(){
+                myChart.resize();    
+             });
+        }
+    );
+</script>
 
       
     </div>
@@ -207,6 +304,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/01/10/How-to-Create-a-Blog-Using-Hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          How to Create a Blog Using Hexo
+        
+      </div>
+    </a>
   
   
     <a href="/2016/01/08/Escaping-Predicting-Poker-Hands-Part-1/" id="article-nav-older" class="article-nav-link-wrap">
