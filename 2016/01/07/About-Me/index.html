@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Escaping: Predicting Poker Hands, Part 2 | CodeMySky&#39;s Blog</title>
+  <title>About Me | CodeMySky&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="After collecting so many records, Tom decide to do some basic exploration. He decide to explore the distribution of the data first. By observing data carefully, he is finally able to get some insight">
+  <meta name="description" content="I’m a data scientist who is eager to dig truth out of data.I’m a data scientist, but now I’m focusing on data visualization. I love the beauty of big data as well as good design. I love start-up feeli">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Escaping: Predicting Poker Hands, Part 2">
-<meta property="og:url" content="http://xiaohan.me/2016/01/09/Escaping-Predicting-Poker-Hands-Part-2/index.html">
+<meta property="og:title" content="About Me">
+<meta property="og:url" content="http://xiaohan.me/2016/01/07/About-Me/index.html">
 <meta property="og:site_name" content="CodeMySky's Blog">
-<meta property="og:description" content="After collecting so many records, Tom decide to do some basic exploration. He decide to explore the distribution of the data first. By observing data carefully, he is finally able to get some insight">
-<meta property="og:updated_time" content="2016-01-08T10:32:26.000Z">
+<meta property="og:description" content="I’m a data scientist who is eager to dig truth out of data.I’m a data scientist, but now I’m focusing on data visualization. I love the beauty of big data as well as good design. I love start-up feeli">
+<meta property="og:updated_time" content="2016-01-08T03:33:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Escaping: Predicting Poker Hands, Part 2">
-<meta name="twitter:description" content="After collecting so many records, Tom decide to do some basic exploration. He decide to explore the distribution of the data first. By observing data carefully, he is finally able to get some insight">
+<meta name="twitter:title" content="About Me">
+<meta name="twitter:description" content="I’m a data scientist who is eager to dig truth out of data.I’m a data scientist, but now I’m focusing on data visualization. I love the beauty of big data as well as good design. I love start-up feeli">
   
     <link rel="alternative" href="/atom.xml" title="CodeMySky&#39;s Blog" type="application/atom+xml">
   
@@ -101,7 +101,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/About-Me/" style="font-size: 10px;">About Me</a> <a href="/tags/Big-Data/" style="font-size: 20px;">Big Data</a> <a href="/tags/Escaping-Predicting-Poker-Hands/" style="font-size: 20px;">Escaping Predicting Poker Hands</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a>
+						<a href="/tags/About-Me/" style="font-size: 10px;">About Me</a> <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Escaping-Predicting-Poker-Hands/" style="font-size: 20px;">Escaping Predicting Poker Hands</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/sklearn/" style="font-size: 10px;">sklearn</a>
 					</div>
 				</section>
 				
@@ -161,11 +161,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Escaping-Predicting-Poker-Hands-Part-2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-About-Me" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/09/Escaping-Predicting-Poker-Hands-Part-2/" class="article-date">
-  	<time datetime="2016-01-08T19:01:03.000Z" itemprop="datePublished">2016-01-08</time>
+      <a href="/2016/01/07/About-Me/" class="article-date">
+  	<time datetime="2016-01-07T18:34:32.000Z" itemprop="datePublished">2016-01-07</time>
 </a>
     </div>
   
@@ -178,7 +178,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Escaping: Predicting Poker Hands, Part 2
+      About Me
     </h1>
   
 
@@ -187,7 +187,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data/">Big Data</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Escaping-Predicting-Poker-Hands/">Escaping Predicting Poker Hands</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/About-Me/">About Me</a></li></ul>
 	</div>
 
         
@@ -198,104 +198,47 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>After collecting so many records, Tom decide to do some basic exploration. He decide to explore the distribution of the data first. By observing data carefully, he is finally able to get some insight of the data and unveil the mystery of the card game.<br><a id="more"></a></p>
-<p><div id="main" style="height:400px;"></div></p>
-<script src="/js/echart/echarts.js"></script>
-<script type="text/javascript">
-    // 路径配置
-    require.config({
-        paths: {
-            echarts: '/js/echart'
-        }
-    });
-
-    // 使用
-    require(
-        [
-            'echarts',
-            'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
-        ],
-        function (ec) {
-            var myChart = ec.init(document.getElementById('main'));
-
-            var option = {
-                title : {
-                    text: 'Water',
-                    subtext: 'Im OK'
-                },
-                tooltip : {
-                    trigger: 'axis'
-                },
-                legend: {
-                    data:['One','Two']
-                },
-                toolbox: {
-                    show : true,
-                    feature : {
-                        mark : {show: true},
-                        dataView : {show: true, readOnly: false},
-                        magicType : {show: true, type: ['line', 'bar']},
-                        restore : {show: true},
-                        saveAsImage : {show: true}
-                    }
-                },
-                calculable : true,
-                xAxis : [
-                    {
-                        type : 'category',
-                        data : ['Jan.','q','w','e','r','y','u','i','o','l','z','x']
-                    }
-                ],
-                yAxis : [
-                    {
-                        type : 'value'
-                    }
-                ],
-                series : [
-                    {
-                        name:'evaop',
-                        type:'bar',
-                        data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
-                        markPoint : {
-                            data : [
-                                {type : 'max', name: 'Max'},
-                                {type : 'min', name: 'Min'}
-                            ]
-                        },
-                        markLine : {
-                            data : [
-                                {type : 'average', name: 'Average'}
-                            ]
-                        }
-                    },
-                    {
-                        name:'NNNN',
-                        type:'bar',
-                        data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
-                        markPoint : {
-                            data : [
-                                {name : 'Max', value : 182.2, xAxis: 7, yAxis: 183, symbolSize:18},
-                                {name : 'Min', value : 2.3, xAxis: 11, yAxis: 3}
-                            ]
-                        },
-                        markLine : {
-                            data : [
-                                {type : 'average', name : 'Average'}
-                            ]
-                        }
-                    }
-                ]
-            };
-
-
-            // 为echarts对象加载数据
-            myChart.setOption(option);
-            $(window).resize(function(){
-                myChart.resize();    
-             });
-        }
-    );
-</script>
+        <p>I’m a data scientist who is eager to dig truth out of data.<br>I’m a data scientist, but now I’m focusing on data visualization. I love the beauty of big data as well as good design. I love start-up feeling and eager to work as a team. I love entrepreneurship and leadership.<br><a id="more"></a></p>
+<h1 id="Educations"><a href="#Educations" class="headerlink" title="Educations"></a>Educations</h1><h2 id="Carnegie_Mellon_University__28_May_2016_-_Aug_2014__29"><a href="#Carnegie_Mellon_University__28_May_2016_-_Aug_2014__29" class="headerlink" title="Carnegie Mellon University ( May 2016 - Aug 2014 )"></a>Carnegie Mellon University ( May 2016 - Aug 2014 )</h2><p>Master - Computer Science 3.59/4.00</p>
+<p>Machine Learning Courses:</p>
+<ul>
+<li>Introduction to Machine Learning (10601)</li>
+<li>Machine Learning for Signal Processing</li>
+<li>Robotics and Machine Learning</li>
+</ul>
+<p>Big Data Courses:</p>
+<ul>
+<li>Big Data Analytics</li>
+<li>Big Data Systems in Practice</li>
+</ul>
+<p><i class="fa fa-map-marker"></i> Pittsburgh, PA | <i class="fa fa-link"></i> <a href="http://www.lti.cs.cmu.edu/" title="Carnegie Mellon University, Language Technologies Institute" target="_blank" rel="external">Carnegie Mellon University, Language Technologies Institute</a></p>
+<h2 id="Beijing_University_of_Posts_and_Telecommunication__28_Sep_2010_-_Jun_2014__29"><a href="#Beijing_University_of_Posts_and_Telecommunication__28_Sep_2010_-_Jun_2014__29" class="headerlink" title="Beijing University of Posts and Telecommunication ( Sep 2010 - Jun 2014 )"></a>Beijing University of Posts and Telecommunication ( Sep 2010 - Jun 2014 )</h2><p>Bachelor - Computer Science and Technology<br><i class="fa fa-map-marker"></i> Beijing, China | <i class="fa fa-link"></i> <a href="http://bupt.edu.cn" title="Beijing University of Posts and Telecommunication" target="_blank" rel="external">Beijing University of Posts and Telecommunication</a></p>
+<h1 id="Careers"><a href="#Careers" class="headerlink" title="Careers"></a>Careers</h1><h2 id="TripAdvisor__28_May_2015_-_Aug_2015__29"><a href="#TripAdvisor__28_May_2015_-_Aug_2015__29" class="headerlink" title="TripAdvisor ( May 2015 - Aug 2015 )"></a>TripAdvisor ( May 2015 - Aug 2015 )</h2><p>Fulltime Intern - Software Engineer for TripAdvisor for Business</p>
+<ul>
+<li>Reduce a page showing all group errors loading time from 2 mins to 1 second, using cache to cache results.</li>
+</ul>
+<p><i class="fa fa-map-marker"></i> Boston, Massachusetts | <i class="fa fa-link"></i> <a href="https://www.tripadvisor.com/Owners" title="TripAdvisor for Business" target="_blank" rel="external">TripAdvisor for Business</a>  </p>
+<h2 id="SPEC_3A__28_Dec_2013_-_Aug_2014__29"><a href="#SPEC_3A__28_Dec_2013_-_Aug_2014__29" class="headerlink" title="SPEC: ( Dec 2013 - Aug 2014 )"></a>SPEC: ( Dec 2013 - Aug 2014 )</h2><p>Fulltime - Lead Developer<br>SPEC: is a startup that to keep track of mods, specifications, set up information, record keeping and sharing.</p>
+<p><i class="fa fa-map-marker"></i> South San Fransisco, California | <i class="fa fa-link"></i> <a href="http://specapp.cc/" title="SPEC:" target="_blank" rel="external">SPEC:</a></p>
+<h2 id="SOHU-com__28_Sep_2008_-_Mar_2011__29"><a href="#SOHU-com__28_Sep_2008_-_Mar_2011__29" class="headerlink" title="SOHU.com ( Sep 2008 - Mar 2011 )"></a>SOHU.com ( Sep 2008 - Mar 2011 )</h2><p> Fulltime Intern - Software Developer<br> Developed a server monitor system, including crawler, data storage and online dashboard. Developed several online office kits to expedite works.</p>
+<p><i class="fa fa-map-marker"></i> Beijing, China |  <i class="fa fa-link"></i> <a href="http://sohu.com/" title="SOHU.com" target="_blank" rel="external">SOHU.com</a></p>
+<h1 id="Abilities"><a href="#Abilities" class="headerlink" title="Abilities"></a>Abilities</h1><p>  “Life without knowledge is death in disguise.” BY Talib Kweli</p>
+<h2 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h2><ul>
+<li>Java</li>
+<li>Python</li>
+<li>Javascript</li>
+<li>SQL</li>
+<li>R</li>
+</ul>
+<h2 id="Languages"><a href="#Languages" class="headerlink" title="Languages"></a>Languages</h2><ul>
+<li>English - Fluent</li>
+<li>Chinese - Mother Tongue</li>
+</ul>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><ul>
+<li>Node.js</li>
+<li>Mongodb</li>
+<li>AngularJS</li>
+</ul>
 
       
     </div>
@@ -305,20 +248,15 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/10/How-to-Create-a-Blog-Using-Hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/08/Escaping-Predicting-Poker-Hands-Part-1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          How to Create a Blog Using Hexo
+          Escaping: Predicting Poker Hands, Part 1
         
       </div>
     </a>
   
-  
-    <a href="/2016/01/08/Escaping-Predicting-Poker-Hands-Part-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Escaping: Predicting Poker Hands, Part 1</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
   
 </nav>
 
