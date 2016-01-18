@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="CodeMySky's Blog">
 <meta property="og:description" content="Decision TreeRandom forest is a famous algorithm that has a good performance, and it is easy to explain how it works.But before Tom introduce Random Forest to you ,he want first cover the concept of d">
 <meta property="og:image" content="http://xiaohan.me/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/decision-tree.png">
-<meta property="og:updated_time" content="2016-01-18T01:02:34.000Z">
+<meta property="og:updated_time" content="2016-01-18T01:10:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Escaping: Predicting Poker Hands, Part 3">
 <meta name="twitter:description" content="Decision TreeRandom forest is a famous algorithm that has a good performance, and it is easy to explain how it works.But before Tom introduce Random Forest to you ,he want first cover the concept of d">
@@ -207,7 +207,156 @@
 <p>Sklearn also provides an simple way to use random forest directly.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.emsemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line">clf = RandomForestClassifier()</span><br><span class="line">clf = clf.fit(X_train, y_train)</span><br></pre></td></tr></table></figure></p>
 <h1 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h1><p>So Tom decide to use random forest directly to generate a baseline.</p>
 <script src="//gist.github.com/6728a29115522ab83bdb.js?file=baseline.py"></script>
-<p>Cross validation result: [ 0.60841929  0.60549358  0.59940012]<br>Confusion Matrix:<br>|        |0        |1        |2        |3        |4    |5    |6    |7    |8    |9    |<br>|—————————————————|<br>|0    |11788|705    |0        |0        |0    |0    |0    |0    |0    |0    |<br>|1    |1686    |8911    |2        |0        |0    |0    |0    |0    |0    |0    |<br>|2    |101    |252    |853  |0        |0    |0    |0    |0    |0    |0    |<br>|3    |22      |121    |0      |370    |0    |0    |0    |0    |0    |0    |<br>|4    |5        |25      |1        |0        |62    |0    |0    |0    |0    |0    |<br>|5    |14      |1        |0        |0        |0    |39    |0    |0    |0    |0    |<br>|6    |1        |8        |0        |0        |0    |0    |27    |0    |0    |0    |<br>|7    |0        |4        |0        |0        |0    |0    |0    |2    |0    |0    |<br>|8    |0        |0        |0        |0        |0    |0    |0    |0    |5    |0    |<br>|9    |0        |2        |0        |0        |0    |0    |0    |0    |0    |3    |</p>
+<p>Cross validation result: [ 0.60841929  0.60549358  0.59940012]<br>Confusion Matrix:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>11788</td>
+<td>705</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1686</td>
+<td>8911</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>101</td>
+<td>252</td>
+<td>853</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>22</td>
+<td>121</td>
+<td>0</td>
+<td>370</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5</td>
+<td>25</td>
+<td>1</td>
+<td>0</td>
+<td>62</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>14</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>39</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>27</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>9</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
 <h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p><a href="https://en.wikipedia.org/wiki/Decision_tree" target="_blank" rel="external">https://en.wikipedia.org/wiki/Decision_tree</a><br><a href="http://scikit-learn.org/stable/modules/tree.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/tree.html</a><br><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a></p>
 
       
