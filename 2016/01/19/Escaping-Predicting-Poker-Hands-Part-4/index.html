@@ -4,19 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Escaping: Predicting Poker Hands, Part 3 | CodeMySky&#39;s Blog</title>
+  <title>Escaping: Predicting Poker Hands, Part 4 | CodeMySky&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Decision TreeRandom forest is a famous algorithm that has a good performance, and it is easy to explain how it works.But before Tom introduce Random Forest to you ,he want first cover the concept of d">
+  <meta name="description" content="New features are created to help improve performance.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Escaping: Predicting Poker Hands, Part 3">
-<meta property="og:url" content="http://xiaohan.me/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/index.html">
+<meta property="og:title" content="Escaping: Predicting Poker Hands, Part 4">
+<meta property="og:url" content="http://xiaohan.me/2016/01/19/Escaping-Predicting-Poker-Hands-Part-4/index.html">
 <meta property="og:site_name" content="CodeMySky's Blog">
-<meta property="og:description" content="Decision TreeRandom forest is a famous algorithm that has a good performance, and it is easy to explain how it works.But before Tom introduce Random Forest to you ,he want first cover the concept of d">
-<meta property="og:image" content="http://xiaohan.me/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/decision-tree.png">
-<meta property="og:updated_time" content="2016-01-24T21:34:42.000Z">
+<meta property="og:description" content="New features are created to help improve performance.">
+<meta property="og:updated_time" content="2016-01-24T21:47:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Escaping: Predicting Poker Hands, Part 3">
-<meta name="twitter:description" content="Decision TreeRandom forest is a famous algorithm that has a good performance, and it is easy to explain how it works.But before Tom introduce Random Forest to you ,he want first cover the concept of d">
+<meta name="twitter:title" content="Escaping: Predicting Poker Hands, Part 4">
+<meta name="twitter:description" content="New features are created to help improve performance.">
   
     <link rel="alternative" href="/atom.xml" title="CodeMySky&#39;s Blog" type="application/atom+xml">
   
@@ -162,11 +161,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Escaping-Predicting-Poker-Hands-Part-3" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Escaping-Predicting-Poker-Hands-Part-4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/" class="article-date">
-  	<time datetime="2016-01-17T23:11:08.000Z" itemprop="datePublished">2016-01-17</time>
+      <a href="/2016/01/19/Escaping-Predicting-Poker-Hands-Part-4/" class="article-date">
+  	<time datetime="2016-01-19T21:27:09.000Z" itemprop="datePublished">2016-01-19</time>
 </a>
     </div>
   
@@ -179,7 +178,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Escaping: Predicting Poker Hands, Part 3
+      Escaping: Predicting Poker Hands, Part 4
     </h1>
   
 
@@ -187,10 +186,6 @@
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/predicting-poker-hands/">predicting-poker-hands</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/random-forest/">random forest</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklearn/">sklearn</a></li></ul>
-	</div>
-
         
 
         <div class="clearfix"></div>
@@ -199,14 +194,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Decision_Tree"><a href="#Decision_Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h1><p>Random forest is a famous algorithm that has a good performance, and it is easy to explain how it works.<br>But before Tom introduce Random Forest to you ,he want first cover the concept of decision tree.<br><a id="more"></a><br>A decision tree is a tree-like model of decisions and their possible consequences. Here is a decision tree of how to distinguish products from Apple.</p>
-<p><img src="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/decision-tree.png" alt="An image of a decision tree"></p>
-<p>Sklearn provides an simple way to generate a decision tree<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line">clf = DecisionTreeClassifier()</span><br><span class="line">clf = clf.fit(X_train, y_train)</span><br></pre></td></tr></table></figure></p>
-<h1 id="Random_Forest"><a href="#Random_Forest" class="headerlink" title="Random Forest"></a>Random Forest</h1><p>Decision tree is very sensitive to biased data, to avoid this bias, we can use multiple decision trees.<br>Random forest randomly choose a subset of all the features and build a decision tree upon it. With the increase of tree numbers, the biases will tend to balance.</p>
-<p>Sklearn also provides an simple way to use random forest directly.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.emsemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line">clf = RandomForestClassifier()</span><br><span class="line">clf = clf.fit(X_train, y_train)</span><br></pre></td></tr></table></figure></p>
-<h1 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h1><p>So Tom decide to use random forest directly to generate a baseline.</p>
-<script src="//gist.github.com/6728a29115522ab83bdb.js?file=baseline.py"></script>
-<p>Result of the classifier:</p>
+        <p>New features are created to help improve performance.<br><a id="more"></a><br>So what may be a good feature, maybe the number of types for each card is important,<br>So I add number of value counts as feature and see the performance.</p>
 <table>
 <thead>
 <tr>
@@ -220,44 +208,44 @@
 <tbody>
 <tr>
 <td>0</td>
-<td>0.64</td>
-<td>0.81</td>
-<td>0.71</td>
+<td>0.59</td>
+<td>0.75</td>
+<td>0.66</td>
 <td>501209</td>
 </tr>
 <tr>
 <td>1</td>
-<td>0.57</td>
-<td>0.49</td>
-<td>0.53</td>
+<td>0.52</td>
+<td>0.44</td>
+<td>0.47</td>
 <td>422498</td>
 </tr>
 <tr>
 <td>2</td>
-<td>0.38</td>
+<td>0.24</td>
 <td>0.00</td>
-<td>0.01</td>
+<td>0.00</td>
 <td>47622</td>
 </tr>
 <tr>
 <td>3</td>
-<td>0.50</td>
+<td>0.18</td>
 <td>0.00</td>
-<td>0.01</td>
+<td>0.00</td>
 <td>21121</td>
 </tr>
 <tr>
 <td>4</td>
-<td>0.25</td>
+<td>0.05</td>
 <td>0.00</td>
 <td>0.00</td>
 <td>3885</td>
 </tr>
 <tr>
 <td>5</td>
+<td>0.99</td>
 <td>1.00</td>
-<td>0.00</td>
-<td>0.01</td>
+<td>0.99</td>
 <td>1996</td>
 </tr>
 <tr>
@@ -290,165 +278,14 @@
 </tr>
 <tr>
 <td>avg/total</td>
-<td>0.59</td>
-<td>0.61</td>
-<td>0.58</td>
+<td>0.53</td>
+<td>0.56</td>
+<td>0.53</td>
 <td>1000000</td>
 </tr>
 </tbody>
 </table>
-<p>Confusion Matrix:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>404468</td>
-<td>96730</td>
-<td>8</td>
-<td>1</td>
-<td>2</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>213328</td>
-<td>208879</td>
-<td>245</td>
-<td>39</td>
-<td>7</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>2</td>
-<td>12214</td>
-<td>35180</td>
-<td>214</td>
-<td>14</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>3</td>
-<td>3589</td>
-<td>17411</td>
-<td>55</td>
-<td>66</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>4</td>
-<td>352</td>
-<td>3525</td>
-<td>5</td>
-<td>0</td>
-<td>3</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>5</td>
-<td>1810</td>
-<td>179</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>7</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>6</td>
-<td>67</td>
-<td>1317</td>
-<td>33</td>
-<td>7</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>7</td>
-<td>3</td>
-<td>219</td>
-<td>4</td>
-<td>4</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>8</td>
-<td>2</td>
-<td>10</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>9</td>
-<td>1</td>
-<td>2</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>From all the statistical result shown above, we can see that we did a poor job classifying every thing except class 0 and class 1. In fact no class other than class 0 or class 1 are classified. The result is bad but we can start from here.</p>
-<h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p><a href="https://en.wikipedia.org/wiki/Decision_tree" target="_blank" rel="external">https://en.wikipedia.org/wiki/Decision_tree</a><br><a href="http://scikit-learn.org/stable/modules/tree.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/tree.html</a><br><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a></p>
+<p>The performance is worse, the average f1-score is only 0.53. but we can see that class 5 improves a lot.<br>That means class 5 is very sensitive to the number of classes. So for the sake of class 5, Tom decided to keep these four features.<br>Then Tom decided to add the value counts of the value of each card as feature and see the performance<br>|      class|  precision|    recall|  f1-score|   support|<br>|———–|———–|———-|———-|———-|<br>|          0|       0.99|      1.00|      0.99|    501209|<br>|          1|       1.00|      1.00|      1.00|    422498|<br>|          2|       0.97|      1.00|      0.99|     47622|<br>|          3|       0.99|      1.00|      0.99|     21121|<br>|          4|       0.99|      0.07|      0.14|      3885|<br>|          5|       0.98|      0.06|      0.11|      1996|<br>|          6|       1.00|      0.01|      0.02|      1424|<br>|          7|       0.00|      0.00|      0.00|       230|<br>|          8|       0.00|      0.00|      0.00|        12|<br>|          9|       1.00|      0.33|      0.50|         3|<br>|avg / total|       0.99|      0.99|      0.99|   1000000|<br>Class 0,1,2,3 are performing very well with a very high F1 score. Amazingly, Tom see that, previously, the class 5, which have very high f1-score in the previous experiment, has a very low f1-score this time. So Tom decide to look into the four types of cards of class 5.</p>
 
       
     </div>
@@ -458,18 +295,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/19/Escaping-Predicting-Poker-Hands-Part-4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Escaping: Predicting Poker Hands, Part 4
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/09/How-to-Create-a-Blog-Using-Hexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">How to Create a Blog Using Hexo</div>
+    <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Escaping: Predicting Poker Hands, Part 3</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

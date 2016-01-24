@@ -162,6 +162,62 @@
 
       <div class="body-wrap">
   
+    <article id="post-Escaping-Predicting-Poker-Hands-Part-4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/19/Escaping-Predicting-Poker-Hands-Part-4/" class="article-date">
+  	<time datetime="2016-01-19T21:27:09.000Z" itemprop="datePublished">2016-01-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/19/Escaping-Predicting-Poker-Hands-Part-4/">Escaping: Predicting Poker Hands, Part 4</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>New features are created to help improve performance.<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/19/Escaping-Predicting-Poker-Hands-Part-4/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Escaping-Predicting-Poker-Hands-Part-3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -188,166 +244,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Decision_Tree"><a href="#Decision_Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h1><p>Random forest is a famous algorithm that has a good performance, and it is easy to explain how it works.<br>But before Tom introduce Random Forest to you ,he want first cover the concept of decision tree.</p>
-<p>A decision tree is a tree-like model of decisions and their possible consequences. Here is a decision tree of how to distinguish products from Apple.</p>
-<p><img src="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/decision-tree.png" alt="An image of a decision tree"></p>
-<p>Sklearn provides an simple way to generate a decision tree<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line">clf = DecisionTreeClassifier()</span><br><span class="line">clf = clf.fit(X_train, y_train)</span><br></pre></td></tr></table></figure></p>
-<h1 id="Random_Forest"><a href="#Random_Forest" class="headerlink" title="Random Forest"></a>Random Forest</h1><p>Decision tree is very sensitive to biased data, to avoid this bias, we can use multiple decision trees.<br>Random forest randomly choose a subset of all the features and build a decision tree upon it. With the increase of tree numbers, the biases will tend to balance.</p>
-<p>Sklearn also provides an simple way to use random forest directly.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.emsemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line">clf = RandomForestClassifier()</span><br><span class="line">clf = clf.fit(X_train, y_train)</span><br></pre></td></tr></table></figure></p>
-<h1 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h1><p>So Tom decide to use random forest directly to generate a baseline.</p>
-<script src="//gist.github.com/6728a29115522ab83bdb.js?file=baseline.py"></script>
-<p>Cross validation result: [ 0.60841929  0.60549358  0.59940012]<br>Confusion Matrix:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>11788</td>
-<td>705</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1686</td>
-<td>8911</td>
-<td>2</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>2</td>
-<td>101</td>
-<td>252</td>
-<td>853</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>3</td>
-<td>22</td>
-<td>121</td>
-<td>0</td>
-<td>370</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>4</td>
-<td>5</td>
-<td>25</td>
-<td>1</td>
-<td>0</td>
-<td>62</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>5</td>
-<td>14</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>39</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>6</td>
-<td>1</td>
-<td>8</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>27</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>7</td>
-<td>0</td>
-<td>4</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>2</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>8</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>5</td>
-<td>0</td>
-</tr>
-<tr>
-<td>9</td>
-<td>0</td>
-<td>2</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-<h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p><a href="https://en.wikipedia.org/wiki/Decision_tree" target="_blank" rel="external">https://en.wikipedia.org/wiki/Decision_tree</a><br><a href="http://scikit-learn.org/stable/modules/tree.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/tree.html</a><br><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a></p>
-
+        <h1 id="Decision_Tree"><a href="#Decision_Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h1><p>Random forest is a famous algorithm that has a good performance, and it is easy to explain how it works.<br>But before Tom introduce Random Forest to you ,he want first cover the concept of decision tree.<br>
       
     </div>
     
@@ -360,6 +257,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
