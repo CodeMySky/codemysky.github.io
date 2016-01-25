@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://xiaohan.me/2016/01/08/Escaping-Predicting-Poker-Hands-Part-1/index.html">
 <meta property="og:site_name" content="CodeMySky's Blog">
 <meta property="og:description" content="While Tom, our hero, was traveling alone in the desert, he was caught by a mysterious tribe. The tribe really like to play card games, so they proposed that, the way to set Tom free is to win a game f">
-<meta property="og:updated_time" content="2016-01-25T19:10:00.000Z">
+<meta property="og:updated_time" content="2016-01-25T19:32:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Escaping: Predicting Poker Hands, Part 1">
 <meta name="twitter:description" content="While Tom, our hero, was traveling alone in the desert, he was caught by a mysterious tribe. The tribe really like to play card games, so they proposed that, the way to set Tom free is to win a game f">
@@ -262,9 +262,9 @@
 
             // 为echarts对象加载数据
             myChart.setOption(option);
-            $(window).resize(function(){
+            window.onresize = function(){
                 myChart.resize();    
-             });
+             };
         }
     );
 </script>
