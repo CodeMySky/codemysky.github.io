@@ -2274,3 +2274,11 @@ pre .css ~ * .id {
   height: 100%;
   overflow: hidden;
 }
+@media print {
+  #container .left-col {
+    display: none;
+  }
+  #container .mid-col {
+    left: 0;
+  }
+}
