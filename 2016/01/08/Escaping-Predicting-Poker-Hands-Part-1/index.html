@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Escaping: Predicting Poker Hands, Part 1 | CodeMySky&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="While Tom, our hero, was traveling alone in the desert, he was caught by a mysterious tribe. The tribe really like to play card games, so they proposed that, the way to set Tom free is to win a game f">
+  <meta name="description" content="Our hero Tom, who used to be a data scientist, went on an adventure, predicting poker hands. He wanted to share his experience here and he hopes it will be helpful for you to learn how to explore the">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Escaping: Predicting Poker Hands, Part 1">
 <meta property="og:url" content="http://xiaohan.me/2016/01/08/Escaping-Predicting-Poker-Hands-Part-1/index.html">
 <meta property="og:site_name" content="CodeMySky's Blog">
-<meta property="og:description" content="While Tom, our hero, was traveling alone in the desert, he was caught by a mysterious tribe. The tribe really like to play card games, so they proposed that, the way to set Tom free is to win a game f">
-<meta property="og:updated_time" content="2016-01-25T20:13:31.000Z">
+<meta property="og:description" content="Our hero Tom, who used to be a data scientist, went on an adventure, predicting poker hands. He wanted to share his experience here and he hopes it will be helpful for you to learn how to explore the">
+<meta property="og:updated_time" content="2016-01-26T00:13:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Escaping: Predicting Poker Hands, Part 1">
-<meta name="twitter:description" content="While Tom, our hero, was traveling alone in the desert, he was caught by a mysterious tribe. The tribe really like to play card games, so they proposed that, the way to set Tom free is to win a game f">
+<meta name="twitter:description" content="Our hero Tom, who used to be a data scientist, went on an adventure, predicting poker hands. He wanted to share his experience here and he hopes it will be helpful for you to learn how to explore the">
   
     <link rel="alternative" href="/atom.xml" title="CodeMySky&#39;s Blog" type="application/atom+xml">
   
@@ -199,14 +199,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>While Tom, our hero, was traveling alone in the desert, he was caught by a mysterious tribe. The tribe really like to play card games, so they proposed that, the way to set Tom free is to win a game from them. Tom didn’t know anything about their card games, but the tribe won’t tell him anything. So tom observed them quietly, from their random speaking he got the type of some of their poker hands. Tom predicted the poker hands using his big data skills to escape!<br><a id="more"></a></p>
-<h1 id="Data_Set"><a href="#Data_Set" class="headerlink" title="Data Set"></a>Data Set</h1><p>According to Tom’s observation, on each card there is a wired mark and a number on it. Tom drawn them down, they are <i class="fa fa-gear"></i> <i class="fa fa-tree"></i> <i class="fa fa-fire"></i> <i class="fa fa-flash"></i>. Tom named these marks 1, 2, 3, 4 for convenience. And there seemed to be 13 values of poker hands, ranging from 1 to 13. Tom wrote them down one line at a time, using two numbers represent one card, and the last number represent the type of poker hand.</p>
+        <p>Our hero Tom, who used to be a data scientist, went on an adventure, predicting poker hands. He wanted to share his experience here and he hopes it will be helpful for you to learn how to explore the big data world.</p>
+<p>In this beginner’s summary, Tom will first talk about some basic concepts of big data, including training sets, test sets. Tom then will talk about a random forest model and how to rate models in general. In the end, Tom will show why features are important to generate accurate results.<br><a id="more"></a></p>
+<p>While Tom was traveling alone in the desert, he was caught by a mysterious tribe. The tribe really liked to play card games, so they proposed that, Tom could earn his freedom by winning a card game. Tom didn’t know anything about their card games, but the tribe didn’t tell him anything. So Tom observed them quietly and from their casual conversation, he understood some of their poker hands. Tom used his big data skills to predict the poker hands and escaped!</p>
+<h1 id="Data_Set"><a href="#Data_Set" class="headerlink" title="Data Set"></a>Data Set</h1><p>According to Tom’s observation, on each card there is a wired mark and a number. Tom drew them down: <i class="fa fa-gear"></i> <i class="fa fa-tree"></i> <i class="fa fa-fire"></i> <i class="fa fa-flash"></i>. Tom named these marks 1, 2, 3, 4 for convenience. And there seemed to be 13 values of cards, ranging from 1 to 13. Tom wrote them down one line at a time, using two numbers represent one card, and the last number represent the type of poker hand, there are 10 types of poker hands possible.</p>
 <p>An example of the data is:</p>
-<pre><code>1, 11, 2, 13, 4, 2, 3, 1, 12, 0
-</code></pre><p>Here, <code>(1, 11)</code>, <code>(2, 13)</code>, <code>(4, 2)</code>, <code>(1, 12)</code> represents five cards. And <code>0</code> represents one type of the card.  All his records can be downloaded <a href="/2016/01/08/Escaping-Predicting-Poker-Hands-Part-1/poker-hand-training-true.data.zip">here</a>.</p>
-<p>After collecting so many records, Tom decided to do some basic exploration. He decided to explore the distribution of the data first. By observing data carefully, he was finally able to get some insight of the data and unveil the mystery of the card game.</p>
-<p><div id="category-destribution" style="height:300px;"></div><br>According to the distribution, we can see that some of the types are extremely rare, but they may be very valuable. Tom wanted to avoid bias towards the majority.</p>
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Usually it’s very hard to predict an open system, like stock market, while it is quite easy to predict the behavior of a closed system. Unfortunately, most of the closed systems are already quite well studied by scientist. Never the less, today Tom is exploring a closed system, a game where the rules remain the same. So let our journey begin.</p>
+<pre><code>3, 5, 3, 6, 3, 9, 3, 7, 3, 8, 8
+</code></pre><p>Here, <code>(3, 5)</code>, <code>(3, 6)</code>, <code>(3, 9)</code>, <code>(3, 7)</code>, <code>(3, 8)</code> represents five cards. And <code>8</code> represents one type of the poker hand.  All his records can be downloaded <a href="/2016/01/08/Escaping-Predicting-Poker-Hands-Part-1/poker-hand-training-true.data.zip">here</a>.</p>
+<p>After he collected so many records, Tom decided to do some basic exploration. He decided to explore the distribution of the data. By observing data carefully, he was finally able to get some insight and unveil the mystery of the card game.</p>
+<p><div id="category-destribution" style="height:300px;"></div><br>According to the distribution, we can see that some of the types are extremely rare, but they may be very valuable, just like Type 9</p>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Usually it’s very hard to predict an open system, like the stock market, while it is quite easy to predict the behavior of a closed system. Unfortunately, most of the closed systems are already quite well studied by scientists. Nevertheless, today Tom is exploring a closed system, a game where the rules are explicitly defined. So Tom has luck now, his journey continues.</p>
 <h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>The original data set is obtained from <a href="http://archive.ics.uci.edu/ml/machine-learning-databases/poker/" title="UCI Data Set" target="_blank" rel="external">UCI</a>.</p>
 <script src="/js/echart/echarts.js"></script>
 <script type="text/javascript">
@@ -226,7 +228,7 @@
 
             var option = {
                 title : {
-                    text: 'Category Histogram',
+                    text: 'Type Bar Chart',
                     subtext: ''
                 },
                 tooltip : {

@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Escaping: Predicting Poker Hands, Part 2 | CodeMySky&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="What are training set and test set and why are they important?">
+  <meta name="description" content="We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Escaping: Predicting Poker Hands, Part 2">
 <meta property="og:url" content="http://xiaohan.me/2016/01/08/Escaping-Predicting-Poker-Hands-Part-2/index.html">
 <meta property="og:site_name" content="CodeMySky's Blog">
-<meta property="og:description" content="What are training set and test set and why are they important?">
-<meta property="og:updated_time" content="2016-01-17T20:10:47.000Z">
+<meta property="og:description" content="We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set.">
+<meta property="og:updated_time" content="2016-01-26T00:19:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Escaping: Predicting Poker Hands, Part 2">
-<meta name="twitter:description" content="What are training set and test set and why are they important?">
+<meta name="twitter:description" content="We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set.">
   
     <link rel="alternative" href="/atom.xml" title="CodeMySky&#39;s Blog" type="application/atom+xml">
   
@@ -199,12 +199,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>What are training set and test set and why are they important?<br><a id="more"></a></p>
-<h1 id="Training_Set"><a href="#Training_Set" class="headerlink" title="Training Set"></a>Training Set</h1><p>When data scientists start their analyze process, they usually first split all data into two sets, training set and test set. The data used to discover potentially predictive relationships is called training set. Why do we need test set? Isn’t more data we have the better possibility to find more convincing relationships?</p>
-<h2 id="Overfit"><a href="#Overfit" class="headerlink" title="Overfit"></a>Overfit</h2><p>TODO: Add a more suitable example here.<br>Let’s take an example here, if we want to estimate the gender ratio in all companies in the United States, but we don’t have enough money to go to every company. So we can randomly choose five companies to go to. If we have chosen Apple, Microsoft, Google, LinkedIn and Amazon, we can falsely make a conclusion that all companies in the United States are dominated by male engineers. But that is not true.</p>
-<h1 id="Test_Set"><a href="#Test_Set" class="headerlink" title="Test Set"></a>Test Set</h1><p>So we need a data set which is independent from training set to evaluate the result of the training. We assume that test set has the same distribution as the training set.</p>
-<p>How to split training set and test set? Usually we take about 30% of the total data set as test set. But while the data set is very large, we can take 5% or 3% to be the test set.</p>
+        <p>We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set.<br><a id="more"></a></p>
+<h1 id="Training_Set"><a href="#Training_Set" class="headerlink" title="Training Set"></a>Training Set</h1><p>When data scientists start their analysis process, they usually first split all data into two sets, a training set and a test set. The data used to discover potentially predictive relationships is called a training set. But why do we need a test set? Isn’t more data we have the better possibility to find more convincing relationships? The test set tests the validity of relationships established in the training set.</p>
+<h1 id="Test_Set"><a href="#Test_Set" class="headerlink" title="Test Set"></a>Test Set</h1><p>So we need a data set which is independent from a training set to evaluate the result of the training. We assume that the test set has the same distribution as the training set. Usually we take about 30% of the total data set as test set. But while the data set is very large, we can take 5% or 3% to be the test set.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.3</span>)</span><br></pre></td></tr></table></figure>
+<p>In this case, the cards Tom used in games with the tribe becomes the test set.</p>
 <h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p><a href="https://en.wikipedia.org/wiki/Test_set" target="_blank" rel="external">https://en.wikipedia.org/wiki/Test_set</a></p>
 
       
