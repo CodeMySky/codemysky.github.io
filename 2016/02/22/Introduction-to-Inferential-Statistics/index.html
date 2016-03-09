@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://xiaohan.me/2016/02/22/Introduction-to-Inferential-Statistics/index.html">
 <meta property="og:site_name" content="CodeMySky's Blog">
 <meta property="og:description" content="I’m learning Intro to Inferential Statistics on Udacity recently.There are many important concepts, which makes my brain almost overflow, so I write them down.">
-<meta property="og:updated_time" content="2016-02-22T20:45:20.000Z">
+<meta property="og:updated_time" content="2016-02-29T02:23:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to Inferential Statistics">
 <meta name="twitter:description" content="I’m learning Intro to Inferential Statistics on Udacity recently.There are many important concepts, which makes my brain almost overflow, so I write them down.">
@@ -102,7 +102,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/about-me/" style="font-size: 10px;">about-me</a> <a href="/tags/feature-extraction/" style="font-size: 10px;">feature-extraction</a> <a href="/tags/predicting-poker-hands/" style="font-size: 20px;">predicting-poker-hands</a> <a href="/tags/random-forest/" style="font-size: 13.33px;">random-forest</a> <a href="/tags/sklearn/" style="font-size: 16.67px;">sklearn</a> <a href="/tags/statistics/" style="font-size: 10px;">statistics</a> <a href="/tags/t-test/" style="font-size: 10px;">t-test</a>
+						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/about-me/" style="font-size: 10px;">about-me</a> <a href="/tags/feature-extraction/" style="font-size: 10px;">feature-extraction</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/knn/" style="font-size: 10px;">knn</a> <a href="/tags/mapreduce/" style="font-size: 13.33px;">mapreduce</a> <a href="/tags/predicting-poker-hands/" style="font-size: 20px;">predicting-poker-hands</a> <a href="/tags/random-forest/" style="font-size: 13.33px;">random-forest</a> <a href="/tags/sklearn/" style="font-size: 16.67px;">sklearn</a> <a href="/tags/statistics/" style="font-size: 10px;">statistics</a> <a href="/tags/t-test/" style="font-size: 10px;">t-test</a>
 					</div>
 				</section>
 				
@@ -200,7 +200,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>I’m learning <a href="https://classroom.udacity.com/courses/ud201/" target="_blank" rel="external">Intro to Inferential Statistics</a> on Udacity recently.<br>There are many important concepts, which makes my brain almost overflow, so I write them down.<br><a id="more"></a></p>
-<h1 id="Estimation"><a href="#Estimation" class="headerlink" title="Estimation"></a>Estimation</h1><h2 id="Population_Mean_vs_Sample_Mean"><a href="#Population_Mean_vs_Sample_Mean" class="headerlink" title="Population Mean vs Sample Mean"></a>Population Mean vs Sample Mean</h2><h2 id="Margin_of_Error"><a href="#Margin_of_Error" class="headerlink" title="Margin of Error"></a>Margin of Error</h2><h2 id="Confidence_Bond"><a href="#Confidence_Bond" class="headerlink" title="Confidence Bond"></a>Confidence Bond</h2><h2 id="Z-Score"><a href="#Z-Score" class="headerlink" title="Z-Score"></a>Z-Score</h2><h2 id="Null_Hypothesis"><a href="#Null_Hypothesis" class="headerlink" title="Null Hypothesis"></a>Null Hypothesis</h2><h2 id="Standard_Error"><a href="#Standard_Error" class="headerlink" title="Standard Error"></a>Standard Error</h2><h1 id="Hypothesis_Testing"><a href="#Hypothesis_Testing" class="headerlink" title="Hypothesis Testing"></a>Hypothesis Testing</h1><h2 id="Alpha_Value"><a href="#Alpha_Value" class="headerlink" title="Alpha Value"></a>Alpha Value</h2><h2 id="Z_Critical_Value"><a href="#Z_Critical_Value" class="headerlink" title="Z Critical Value"></a>Z Critical Value</h2><h2 id="One_Tail/Two_Tail_Test/Critical_Value"><a href="#One_Tail/Two_Tail_Test/Critical_Value" class="headerlink" title="One Tail/Two Tail Test/Critical Value"></a>One Tail/Two Tail Test/Critical Value</h2><h2 id="Reject/Retain_Null"><a href="#Reject/Retain_Null" class="headerlink" title="Reject/Retain Null"></a>Reject/Retain Null</h2><h2 id="Alternative_Hypothesis"><a href="#Alternative_Hypothesis" class="headerlink" title="Alternative Hypothesis"></a>Alternative Hypothesis</h2><h1 id="T-Test"><a href="#T-Test" class="headerlink" title="T-Test"></a>T-Test</h1><h2 id="T-Distribution"><a href="#T-Distribution" class="headerlink" title="T-Distribution"></a>T-Distribution</h2><h2 id="Degree_of_freedom"><a href="#Degree_of_freedom" class="headerlink" title="Degree of freedom"></a>Degree of freedom</h2><h2 id="One_Tail_T-test/Two_Tail_T-test"><a href="#One_Tail_T-test/Two_Tail_T-test" class="headerlink" title="One Tail T-test/Two Tail T-test"></a>One Tail T-test/Two Tail T-test</h2><h2 id="T-statistics"><a href="#T-statistics" class="headerlink" title="T-statistics"></a>T-statistics</h2><h2 id="P-Value"><a href="#P-Value" class="headerlink" title="P-Value"></a>P-Value</h2><h2 id="Cohen_u2019s_d"><a href="#Cohen_u2019s_d" class="headerlink" title="Cohen’s d"></a>Cohen’s d</h2><h2 id="R_5E2"><a href="#R_5E2" class="headerlink" title="R^2"></a>R^2</h2><h2 id="SEM"><a href="#SEM" class="headerlink" title="SEM"></a>SEM</h2><h2 id="Dependent_Sample"><a href="#Dependent_Sample" class="headerlink" title="Dependent Sample"></a>Dependent Sample</h2><h2 id="Independent_Sample"><a href="#Independent_Sample" class="headerlink" title="Independent Sample"></a>Independent Sample</h2><h2 id="Pooled_Variance"><a href="#Pooled_Variance" class="headerlink" title="Pooled Variance"></a>Pooled Variance</h2><h2 id="Corrected_Standard_Error"><a href="#Corrected_Standard_Error" class="headerlink" title="Corrected Standard Error"></a>Corrected Standard Error</h2>
+<h1 id="Estimation"><a href="#Estimation" class="headerlink" title="Estimation"></a>Estimation</h1><h2 id="Population_Mean_vs-_Sample_Mean"><a href="#Population_Mean_vs-_Sample_Mean" class="headerlink" title="Population Mean vs. Sample Mean"></a>Population Mean vs. Sample Mean</h2><p>For a very large population, it is very hard to get the distribution of the entire population. Whatever distribution of population is, the sample mean will have a normal distribution.</p>
+<h2 id="Margin_of_Error"><a href="#Margin_of_Error" class="headerlink" title="Margin of Error"></a>Margin of Error</h2><span>$\frac{2\sigma}{\sqrt{n}}$</span><!-- Has MathJax -->
+<h2 id="Confidence_Bond"><a href="#Confidence_Bond" class="headerlink" title="Confidence Bond"></a>Confidence Bond</h2><h2 id="Z-Score"><a href="#Z-Score" class="headerlink" title="Z-Score"></a>Z-Score</h2><h2 id="Null_Hypothesis"><a href="#Null_Hypothesis" class="headerlink" title="Null Hypothesis"></a>Null Hypothesis</h2><h2 id="Standard_Error"><a href="#Standard_Error" class="headerlink" title="Standard Error"></a>Standard Error</h2><p>\frac{\sigma}{\sqrt{n}}</p>
+<h1 id="Hypothesis_Testing"><a href="#Hypothesis_Testing" class="headerlink" title="Hypothesis Testing"></a>Hypothesis Testing</h1><h2 id="Alpha_Value"><a href="#Alpha_Value" class="headerlink" title="Alpha Value"></a>Alpha Value</h2><h2 id="Z_Critical_Value"><a href="#Z_Critical_Value" class="headerlink" title="Z Critical Value"></a>Z Critical Value</h2><h2 id="One_Tail/Two_Tail_Test/Critical_Value"><a href="#One_Tail/Two_Tail_Test/Critical_Value" class="headerlink" title="One Tail/Two Tail Test/Critical Value"></a>One Tail/Two Tail Test/Critical Value</h2><h2 id="Reject/Retain_Null"><a href="#Reject/Retain_Null" class="headerlink" title="Reject/Retain Null"></a>Reject/Retain Null</h2><h2 id="Alternative_Hypothesis"><a href="#Alternative_Hypothesis" class="headerlink" title="Alternative Hypothesis"></a>Alternative Hypothesis</h2><h1 id="T-Test"><a href="#T-Test" class="headerlink" title="T-Test"></a>T-Test</h1><h2 id="T-Distribution"><a href="#T-Distribution" class="headerlink" title="T-Distribution"></a>T-Distribution</h2><h2 id="Degree_of_freedom"><a href="#Degree_of_freedom" class="headerlink" title="Degree of freedom"></a>Degree of freedom</h2><h2 id="One_Tail_T-test/Two_Tail_T-test"><a href="#One_Tail_T-test/Two_Tail_T-test" class="headerlink" title="One Tail T-test/Two Tail T-test"></a>One Tail T-test/Two Tail T-test</h2><h2 id="T-statistics"><a href="#T-statistics" class="headerlink" title="T-statistics"></a>T-statistics</h2><h2 id="P-Value"><a href="#P-Value" class="headerlink" title="P-Value"></a>P-Value</h2><h2 id="Cohen_u2019s_d"><a href="#Cohen_u2019s_d" class="headerlink" title="Cohen’s d"></a>Cohen’s d</h2><h2 id="R_5E2"><a href="#R_5E2" class="headerlink" title="R^2"></a>R^2</h2><h2 id="SEM"><a href="#SEM" class="headerlink" title="SEM"></a>SEM</h2><h2 id="Dependent_Sample"><a href="#Dependent_Sample" class="headerlink" title="Dependent Sample"></a>Dependent Sample</h2><h2 id="Independent_Sample"><a href="#Independent_Sample" class="headerlink" title="Independent Sample"></a>Independent Sample</h2><h2 id="Pooled_Variance"><a href="#Pooled_Variance" class="headerlink" title="Pooled Variance"></a>Pooled Variance</h2><h2 id="Corrected_Standard_Error"><a href="#Corrected_Standard_Error" class="headerlink" title="Corrected Standard Error"></a>Corrected Standard Error</h2>
       
     </div>
     
@@ -208,6 +211,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/02/22/Secret-Mission-Spy-in-the-Dark/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Secret Mission: Spy in the Dark
+        
+      </div>
+    </a>
   
   
     <a href="/2016/01/19/Escaping-Predicting-Poker-Hands-Part-4/" id="article-nav-older" class="article-nav-link-wrap">
@@ -315,5 +327,23 @@ MathJax.Hub.Queue(function() {
 
 
   </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>
