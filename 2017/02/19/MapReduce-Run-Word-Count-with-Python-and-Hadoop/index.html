@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>MapReduce: Run Word Count with Python and Hadoop | CodeMySky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Install Hortonworks SandboxHortonworks sandbox provides a nice playground for hadoop beginners to test their big data application.  Windows and Linux: Install Virtual Box MAC: Install VMWare Fusion In">
+<meta name="keywords" content="mapreduce,python,hadoop,hortonworks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MapReduce: Run Word Count with Python and Hadoop">
+<meta property="og:url" content="http://xiaohan.me/2017/02/19/MapReduce-Run-Word-Count-with-Python-and-Hadoop/index.html">
+<meta property="og:site_name" content="CodeMySky&#39;s Blog">
+<meta property="og:description" content="Install Hortonworks SandboxHortonworks sandbox provides a nice playground for hadoop beginners to test their big data application.  Windows and Linux: Install Virtual Box MAC: Install VMWare Fusion In">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-08-29T05:54:43.847Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MapReduce: Run Word Count with Python and Hadoop">
+<meta name="twitter:description" content="Install Hortonworks SandboxHortonworks sandbox provides a nice playground for hadoop beginners to test their big data application.  Windows and Linux: Install Virtual Box MAC: Install VMWare Fusion In">
+  
+    <link rel="alternative" href="/atom.xml" title="CodeMySky&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/require-2.1.6,jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="#" class="profilepic">
+			<img src="/img/avatar.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Sean Han</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">My heart is in BIG DATA</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+							<li><a href="/2016/01/07/About-Me/">About Me</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/CodeMySky" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:hanxiaobow@gmail.com" title="mail">mail</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/in/codemysky" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/about-me/" style="font-size: 10px;">about-me</a> <a href="/tags/f-test/" style="font-size: 10px;">f-test</a> <a href="/tags/feature-extraction/" style="font-size: 10px;">feature-extraction</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hortonworks/" style="font-size: 10px;">hortonworks</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/knn/" style="font-size: 10px;">knn</a> <a href="/tags/mapreduce/" style="font-size: 16.67px;">mapreduce</a> <a href="/tags/predicting-poker-hands/" style="font-size: 20px;">predicting-poker-hands</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/random-forest/" style="font-size: 13.33px;">random-forest</a> <a href="/tags/sklearn/" style="font-size: 16.67px;">sklearn</a> <a href="/tags/statistics/" style="font-size: 10px;">statistics</a> <a href="/tags/t-test/" style="font-size: 10px;">t-test</a> <a href="/tags/z-test/" style="font-size: 10px;">z-test</a>
+					</div>
+				</section>
+				
+
+				
+
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Sean Han</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Sean Han</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">My heart is in BIG DATA</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+					<li><a href="/2016/01/07/About-Me/">About Me</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/CodeMySky" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:hanxiaobow@gmail.com" title="mail">mail</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/in/codemysky" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-MapReduce-Run-Word-Count-with-Python-and-Hadoop" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/19/MapReduce-Run-Word-Count-with-Python-and-Hadoop/" class="article-date">
+  	<time datetime="2017-02-19T19:20:02.000Z" itemprop="datePublished">2017-02-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MapReduce: Run Word Count with Python and Hadoop
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hortonworks/">hortonworks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mapreduce/">mapreduce</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Install-Hortonworks-Sandbox"><a href="#Install-Hortonworks-Sandbox" class="headerlink" title="Install Hortonworks Sandbox"></a>Install Hortonworks Sandbox</h2><p>Hortonworks sandbox provides a nice playground for hadoop beginners to test their big data application.</p>
+<ul>
+<li><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">Windows and Linux: Install Virtual Box</a></li>
+<li><a href="https://www.vmware.com/go/downloadfusion" target="_blank" rel="external">MAC: Install VMWare Fusion</a></li>
+<li><a href="https://hortonworks.com/downloads/" target="_blank" rel="external">Install Hortonworks Sandbox</a></li>
+<li><a href="http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/" target="_blank" rel="external">Follow tutorial to setup environment and password</a></li>
+<li>The python shipped with hortonworks is Python 2.6, which is really old.</li>
+<li>Install Anaconda3 to upgrade python to Python 3.6 to default location /root/anaconda3</li>
+<li><a href="https://www.continuum.io/downloads" target="_blank" rel="external">Anaconda</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash Anaconda3-XXX-Linux-x86_64.sh</div></pre></td></tr></table></figure>
+<h2 id="Mapper"><a href="#Mapper" class="headerlink" title="Mapper"></a>Mapper</h2><p>Code here is a modified version of mapper in <a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/" target="_blank" rel="external">this blog</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/root/anaconda3/bin/python</span></div><div class="line"><span class="comment"># Filename: word_count_mapper.py</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="comment"># input comes from STDIN (standard input)</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</div><div class="line">    <span class="comment"># remove leading and trailing whitespace</span></div><div class="line">    line = line.strip()</div><div class="line">    <span class="comment"># split the line into words</span></div><div class="line">    words = line.split()</div><div class="line">    <span class="comment"># increase counters</span></div><div class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</div><div class="line">        <span class="comment"># write the results to STDOUT (standard output);</span></div><div class="line">        <span class="comment"># what we output here will be the input for the</span></div><div class="line">        <span class="comment"># Reduce step, i.e. the input for reducer.py</span></div><div class="line">        <span class="comment">#</span></div><div class="line">        <span class="comment"># tab-delimited; the trivial word count is 1</span></div><div class="line">        print(<span class="string">'&#123;&#125;\t&#123;&#125;'</span>.format(word, <span class="number">1</span>))</div></pre></td></tr></table></figure>
+<h2 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h2><p>Code here is a modified version of reducer in <a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/" target="_blank" rel="external">this blog</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/root/anaconda3/bin/python</span></div><div class="line"><span class="comment"># Filename: word_count_reducer.py</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> itemgetter</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">current_word = <span class="keyword">None</span></div><div class="line">current_count = <span class="number">0</span></div><div class="line">word = <span class="keyword">None</span></div><div class="line"></div><div class="line"><span class="comment"># input comes from STDIN</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</div><div class="line">    <span class="comment"># remove leading and trailing whitespace</span></div><div class="line">    line = line.strip()</div><div class="line"></div><div class="line">    <span class="comment"># parse the input we got from mapper.py</span></div><div class="line">    word, count = line.split(<span class="string">'\t'</span>, <span class="number">1</span>)</div><div class="line"></div><div class="line">    <span class="comment"># convert count (currently a string) to int</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        count = int(count)</div><div class="line">    <span class="keyword">except</span> ValueError:</div><div class="line">        <span class="comment"># count was not a number, so silently</span></div><div class="line">        <span class="comment"># ignore/discard this line</span></div><div class="line">        <span class="keyword">continue</span></div><div class="line"></div><div class="line">    <span class="comment"># this IF-switch only works because Hadoop sorts map output</span></div><div class="line">    <span class="comment"># by key (here: word) before it is passed to the reducer</span></div><div class="line">    <span class="keyword">if</span> current_word == word:</div><div class="line">        current_count += count</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">if</span> current_word:</div><div class="line">            <span class="comment"># write result to STDOUT</span></div><div class="line">            print(<span class="string">'&#123;&#125;\t&#123;&#125;'</span>.format(current_word, current_count))</div><div class="line">        current_count = count</div><div class="line">        current_word = word</div><div class="line"></div><div class="line"><span class="comment"># do not forget to output the last word if needed!</span></div><div class="line"><span class="keyword">if</span> current_word == word:</div><div class="line">    print(<span class="string">'&#123;&#125;\t&#123;&#125;'</span>.format(current_word, current_count))</div></pre></td></tr></table></figure>
+<h2 id="Test-Mapper-and-Reducer"><a href="#Test-Mapper-and-Reducer" class="headerlink" title="Test Mapper and Reducer"></a>Test Mapper and Reducer</h2><ul>
+<li>Download <a href="https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt" target="_blank" rel="external">Shakespeare</a> </li>
+<li><p>Scp the txt into virtual machine, you can use scp on Mac and Linux <figure class="highlight plain"><figcaption><span>-P 2222 t8.shakespeare.txt root@localhost:/root/ ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- You can use [WinSCP](https://winscp.net/eng/download.php) to put the txt into virtual maxhine</div><div class="line">- Make mapper and reducer executable ```chmod +x word_count_mapper.py word_count_reducer.py</div></pre></td></tr></table></figure></p>
+</li>
+<li><p><strong>Test your mapper and reducer locally</strong> <figure class="highlight plain"><figcaption><span>t8.shakespear.txt | word_count_mapper.py | sort | word_count_reducer.py  ``` , this step is important because hadoop doesn't show the exact error output from python, so it's hard to debug python in hadoop.</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- Upload the txt into hdfs under ```/demo/data```, using [Ambari file view](http://localhost:8080/#/main/views/FILES/1.0.0/AUTO_FILES_INSTANCE)</div><div class="line">- Test mapper and reducer using hadoop</div><div class="line"></div><div class="line">```bash</div><div class="line">hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -file /root/mapper.py -mapper mapper.py -file /root/reducer.py -reducer reducer.py -input /demo/data/t8.shakespeare.txt -output /demo/output</div></pre></td></tr></table></figure></p>
+</li>
+<li><p>Clean up the output folder after the experiment, this step is important because hadoop will not overwrite existing folder</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hdfs dfs -rm -r /demo/output</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/" target="_blank" rel="external">http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/19/MapReduce-Train-Random-Forest-with-Python-and-Hadoop/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          MapReduce: Train Random Forest with Python and Hadoop
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/26/Mapreduce-Start-from-Word-Count/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mapreduce: Start from Word Count</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'codemysky'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Sean Han
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+</body>
+</html>

@@ -6,24 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Escaping: Predicting Poker Hands, Part 2 | CodeMySky&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set.">
+  <meta name="description" content="We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set. testing.">
+<meta name="keywords" content="predicting-poker-hands,sklearn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Escaping: Predicting Poker Hands, Part 2">
-<meta property="og:url" content="http://xiaohan.me/2016/01/08/Escaping-Predicting-Poker-Hands-Part-2/index.html">
-<meta property="og:site_name" content="CodeMySky's Blog">
-<meta property="og:description" content="We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set.">
-<meta property="og:updated_time" content="2016-01-26T00:19:18.000Z">
+<meta property="og:url" content="http://xiaohan.me/2016/01/17/Escaping-Predicting-Poker-Hands-Part-2/index.html">
+<meta property="og:site_name" content="CodeMySky&#39;s Blog">
+<meta property="og:description" content="We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set. testing.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-08-29T05:58:27.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Escaping: Predicting Poker Hands, Part 2">
-<meta name="twitter:description" content="We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set.">
+<meta name="twitter:description" content="We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set. testing.">
   
     <link rel="alternative" href="/atom.xml" title="CodeMySky&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <script src="/js/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/require-2.1.6,jquery-1.9.1.min.js"></script>
 </head>
 
 <body>
@@ -102,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/about-me/" style="font-size: 10px;">about-me</a> <a href="/tags/f-test/" style="font-size: 10px;">f-test</a> <a href="/tags/feature-extraction/" style="font-size: 10px;">feature-extraction</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/knn/" style="font-size: 10px;">knn</a> <a href="/tags/mapreduce/" style="font-size: 13.33px;">mapreduce</a> <a href="/tags/predicting-poker-hands/" style="font-size: 20px;">predicting-poker-hands</a> <a href="/tags/random-forest/" style="font-size: 13.33px;">random-forest</a> <a href="/tags/sklearn/" style="font-size: 16.67px;">sklearn</a> <a href="/tags/statistics/" style="font-size: 10px;">statistics</a> <a href="/tags/t-test/" style="font-size: 10px;">t-test</a> <a href="/tags/z-test/" style="font-size: 10px;">z-test</a>
+						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/about-me/" style="font-size: 10px;">about-me</a> <a href="/tags/f-test/" style="font-size: 10px;">f-test</a> <a href="/tags/feature-extraction/" style="font-size: 10px;">feature-extraction</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hortonworks/" style="font-size: 10px;">hortonworks</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/knn/" style="font-size: 10px;">knn</a> <a href="/tags/mapreduce/" style="font-size: 16.67px;">mapreduce</a> <a href="/tags/predicting-poker-hands/" style="font-size: 20px;">predicting-poker-hands</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/random-forest/" style="font-size: 13.33px;">random-forest</a> <a href="/tags/sklearn/" style="font-size: 16.67px;">sklearn</a> <a href="/tags/statistics/" style="font-size: 10px;">statistics</a> <a href="/tags/t-test/" style="font-size: 10px;">t-test</a> <a href="/tags/z-test/" style="font-size: 10px;">z-test</a>
 					</div>
 				</section>
 				
@@ -165,8 +167,8 @@
       <div class="body-wrap"><article id="post-Escaping-Predicting-Poker-Hands-Part-2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/08/Escaping-Predicting-Poker-Hands-Part-2/" class="article-date">
-  	<time datetime="2016-01-08T19:01:03.000Z" itemprop="datePublished">2016-01-08</time>
+      <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-2/" class="article-date">
+  	<time datetime="2016-01-17T23:11:08.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
     </div>
   
@@ -199,10 +201,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set.<br><a id="more"></a></p>
-<h1 id="Training_Set"><a href="#Training_Set" class="headerlink" title="Training Set"></a>Training Set</h1><p>When data scientists start their analysis process, they usually first split all data into two sets, a training set and a test set. The data used to discover potentially predictive relationships is called a training set. But why do we need a test set? Isn’t more data we have the better possibility to find more convincing relationships? The test set tests the validity of relationships established in the training set.</p>
-<h1 id="Test_Set"><a href="#Test_Set" class="headerlink" title="Test Set"></a>Test Set</h1><p>So we need a data set which is independent from a training set to evaluate the result of the training. We assume that the test set has the same distribution as the training set. Usually we take about 30% of the total data set as test set. But while the data set is very large, we can take 5% or 3% to be the test set.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.3</span>)</span><br></pre></td></tr></table></figure>
+        <p>We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set. testing.<br><a id="more"></a></p>
+<h1 id="Training-Set"><a href="#Training-Set" class="headerlink" title="Training Set"></a>Training Set</h1><p>When data scientists start their analysis process, they usually first split all data into two sets, a training set and a test set. The data used to discover potentially predictive relationships is called a training set. But why do we need a test set? Isn’t more data we have the better possibility to find more convincing relationships? The test set tests the validity of relationships established in the training set.</p>
+<h1 id="Test-Set"><a href="#Test-Set" class="headerlink" title="Test Set"></a>Test Set</h1><p>So we need a data set which is independent from a training set to evaluate the result of the training. We assume that the test set has the same distribution as the training set. Usually we take about 30% of the total data set as test set. But while the data set is very large, we can take 5% or 3% to be the test set.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</div><div class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.3</span>)</div></pre></td></tr></table></figure>
 <p>In this case, the cards Tom used in games with the tribe becomes the test set.</p>
 <h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p><a href="https://en.wikipedia.org/wiki/Test_set" target="_blank" rel="external">https://en.wikipedia.org/wiki/Test_set</a></p>
 
@@ -214,18 +216,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/09/How-to-Create-a-Blog-Using-Hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          How to Create a Blog Using Hexo
+          Escaping: Predicting Poker Hands, Part 5
         
       </div>
     </a>
   
   
-    <a href="/2016/01/07/Escaping-Predicting-Poker-Hands-Part-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Escaping: Predicting Poker Hands, Part 1</div>
+    <a href="/2016/01/09/How-to-Create-a-Blog-Using-Hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">How to Create a Blog Using Hexo</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -273,7 +275,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Sean Han
+    		&copy; 2017 Sean Han
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -283,7 +285,7 @@
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -299,8 +301,8 @@
 		open_in_new: false
 	}
 </script>
-<script src="/js/main.js" type="text/javascript"></script>
-<link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+<script src="/js/main.js"></script>
+<link rel="stylesheet" href="/css/font-awesome.min.css">
 
 
 
