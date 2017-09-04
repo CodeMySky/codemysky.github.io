@@ -164,10 +164,10 @@
 
       <div class="body-wrap">
   
-    <article id="post-Escaping-Predicting-Poker-Hands-Part-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-MapReduce-Run-Word-Count-with-Python-and-Hadoop" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/" class="article-date">
+      <a href="/2016/01/17/MapReduce-Run-Word-Count-with-Python-and-Hadoop/" class="article-date">
   	<time datetime="2016-01-17T23:11:08.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
     </div>
@@ -181,7 +181,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/">Escaping: Predicting Poker Hands, Part 1</a>
+      <a class="article-title" href="/2016/01/17/MapReduce-Run-Word-Count-with-Python-and-Hadoop/">MapReduce: Run Word Count with Python and Hadoop</a>
     </h1>
   
 
@@ -190,8 +190,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Our hero Tom, who used to be a data scientist, went on an adventure, predicting poker hands. He wanted to share his experience here and he hopes it will be helpful for you to learn how to explore the big data world.</p>
-<p>In this beginner’s summary, Tom will first talk about some basic concepts of big data, including training sets, test sets. Tom then will talk about a random forest model and how to rate models in general. In the end, Tom will show why features are important to generate accurate results.<br>
+        <h2 id="Install-Hortonworks-Sandbox"><a href="#Install-Hortonworks-Sandbox" class="headerlink" title="Install Hortonworks Sandbox"></a>Install Hortonworks Sandbox</h2><p>Hortonworks sandbox provides a nice playground for hadoop beginners to test their big data application.</p>
+<ul>
+<li><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">Windows and Linux: Install Virtual Box</a></li>
+<li><a href="https://www.vmware.com/go/downloadfusion" target="_blank" rel="external">MAC: Install VMWare Fusion</a></li>
+<li><a href="https://hortonworks.com/downloads/" target="_blank" rel="external">Install Hortonworks Sandbox</a></li>
+<li><a href="http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/" target="_blank" rel="external">Follow tutorial to setup environment and password</a></li>
+<li>The python shipped with hortonworks is Python 2.6, which is really old.</li>
+<li>Install Anaconda3 to upgrade python to Python 3.6 to default location /root/anaconda3</li>
+<li><a href="https://www.continuum.io/downloads" target="_blank" rel="external">Anaconda</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash Anaconda3-XXX-Linux-x86_64.sh</div></pre></td></tr></table></figure>
+<h2 id="Mapper"><a href="#Mapper" class="headerlink" title="Mapper"></a>Mapper</h2><p>Code here is a modified version of mapper in <a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/" target="_blank" rel="external">this blog</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/root/anaconda3/bin/python</span></div><div class="line"><span class="comment"># Filename: word_count_mapper.py</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="comment"># input comes from STDIN (standard input)</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</div><div class="line">    <span class="comment"># remove leading and trailing whitespace</span></div><div class="line">    line = line.strip()</div><div class="line">    <span class="comment"># split the line into words</span></div><div class="line">    words = line.split()</div><div class="line">    <span class="comment"># increase counters</span></div><div class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</div><div class="line">        <span class="comment"># write the results to STDOUT (standard output);</span></div><div class="line">        <span class="comment"># what we output here will be the input for the</span></div><div class="line">        <span class="comment"># Reduce step, i.e. the input for reducer.py</span></div><div class="line">        <span class="comment">#</span></div><div class="line">        <span class="comment"># tab-delimited; the trivial word count is 1</span></div><div class="line">        print(<span class="string">'&#123;&#125;\t&#123;&#125;'</span>.format(word, <span class="number">1</span>))</div></pre></td></tr></table></figure>
+<h2 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h2><p>Code here is a modified version of reducer in <a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/" target="_blank" rel="external">this blog</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/root/anaconda3/bin/python</span></div><div class="line"><span class="comment"># Filename: word_count_reducer.py</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> itemgetter</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">current_word = <span class="keyword">None</span></div><div class="line">current_count = <span class="number">0</span></div><div class="line">word = <span class="keyword">None</span></div><div class="line"></div><div class="line"><span class="comment"># input comes from STDIN</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</div><div class="line">    <span class="comment"># remove leading and trailing whitespace</span></div><div class="line">    line = line.strip()</div><div class="line"></div><div class="line">    <span class="comment"># parse the input we got from mapper.py</span></div><div class="line">    word, count = line.split(<span class="string">'\t'</span>, <span class="number">1</span>)</div><div class="line"></div><div class="line">    <span class="comment"># convert count (currently a string) to int</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        count = int(count)</div><div class="line">    <span class="keyword">except</span> ValueError:</div><div class="line">        <span class="comment"># count was not a number, so silently</span></div><div class="line">        <span class="comment"># ignore/discard this line</span></div><div class="line">        <span class="keyword">continue</span></div><div class="line"></div><div class="line">    <span class="comment"># this IF-switch only works because Hadoop sorts map output</span></div><div class="line">    <span class="comment"># by key (here: word) before it is passed to the reducer</span></div><div class="line">    <span class="keyword">if</span> current_word == word:</div><div class="line">        current_count += count</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">if</span> current_word:</div><div class="line">            <span class="comment"># write result to STDOUT</span></div><div class="line">            print(<span class="string">'&#123;&#125;\t&#123;&#125;'</span>.format(current_word, current_count))</div><div class="line">        current_count = count</div><div class="line">        current_word = word</div><div class="line"></div><div class="line"><span class="comment"># do not forget to output the last word if needed!</span></div><div class="line"><span class="keyword">if</span> current_word == word:</div><div class="line">    print(<span class="string">'&#123;&#125;\t&#123;&#125;'</span>.format(current_word, current_count))</div></pre></td></tr></table></figure>
+<h2 id="Test-Mapper-and-Reducer"><a href="#Test-Mapper-and-Reducer" class="headerlink" title="Test Mapper and Reducer"></a>Test Mapper and Reducer</h2><ul>
+<li>Download <a href="https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt" target="_blank" rel="external">Shakespeare</a> </li>
+<li><p>Scp the txt into virtual machine, you can use scp on Mac and Linux <figure class="highlight plain"><figcaption><span>-P 2222 t8.shakespeare.txt root@localhost:/root/ ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- You can use [WinSCP](https://winscp.net/eng/download.php) to put the txt into virtual maxhine</div><div class="line">- Make mapper and reducer executable ```chmod +x word_count_mapper.py word_count_reducer.py</div></pre></td></tr></table></figure></p>
+</li>
+<li><p><strong>Test your mapper and reducer locally</strong> <figure class="highlight plain"><figcaption><span>t8.shakespear.txt | word_count_mapper.py | sort | word_count_reducer.py  ``` , this step is important because hadoop doesn't show the exact error output from python, so it's hard to debug python in hadoop.</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- Upload the txt into hdfs under ```/demo/data```, using [Ambari file view](http://localhost:8080/#/main/views/FILES/1.0.0/AUTO_FILES_INSTANCE)</div><div class="line">- Test mapper and reducer using hadoop</div><div class="line"></div><div class="line">```bash</div><div class="line">hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -file /root/mapper.py -mapper mapper.py -file /root/reducer.py -reducer reducer.py -input /demo/data/t8.shakespeare.txt -output /demo/output</div></pre></td></tr></table></figure></p>
+</li>
+<li><p>Clean up the output folder after the experiment, this step is important because hadoop will not overwrite existing folder</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hdfs dfs -rm -r /demo/output</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/" target="_blank" rel="external">http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/</a></li>
+</ul>
+
       
     </div>
     
@@ -199,14 +226,130 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/predicting-poker-hands/">predicting-poker-hands</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hortonworks/">hortonworks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mapreduce/">mapreduce</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-How-to-Create-a-Blog-Using-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/17/How-to-Create-a-Blog-Using-Hexo/" class="article-date">
+  	<time datetime="2016-01-17T23:11:08.000Z" itemprop="datePublished">2016-01-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/How-to-Create-a-Blog-Using-Hexo/">How to Create a Blog Using Hexo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://hexo.io" title="Hexo" target="_blank" rel="external">Hexo</a> is a fast, simple &amp; powerful blog framework built on Node.js. By using Hexo, I avoided a lot of frustration building a blog while concentrate myself on blog.</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/#more">more >></a>
+          <a  href="/2016/01/17/How-to-Create-a-Blog-Using-Hexo/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Escaping-Predicting-Poker-Hands-Part-3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/" class="article-date">
+  	<time datetime="2016-01-17T23:11:08.000Z" itemprop="datePublished">2016-01-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/">Escaping: Predicting Poker Hands, Part 5</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Tom decided to use random forest model, a famous model which is easy to use, to predict poker hands. He wanted to introduce it, but first, he want to introduce decision tree model.<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/predicting-poker-hands/">predicting-poker-hands</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/random-forest/">random-forest</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklearn/">sklearn</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
