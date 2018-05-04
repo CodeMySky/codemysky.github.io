@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Escaping: Predicting Poker Hands, Part 5 | CodeMySky&#39;s Blog</title>
@@ -27,11 +27,11 @@
     <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/require-2.1.6,jquery-1.9.1.min.js"></script>
+  <script src="/js/require-2.1.6,jquery-1.9.1.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
@@ -106,7 +106,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/about-me/" style="font-size: 10px;">about-me</a> <a href="/tags/f-test/" style="font-size: 10px;">f-test</a> <a href="/tags/feature-extraction/" style="font-size: 10px;">feature-extraction</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hortonworks/" style="font-size: 10px;">hortonworks</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/knn/" style="font-size: 10px;">knn</a> <a href="/tags/mapreduce/" style="font-size: 16.67px;">mapreduce</a> <a href="/tags/predicting-poker-hands/" style="font-size: 20px;">predicting-poker-hands</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/random-forest/" style="font-size: 13.33px;">random-forest</a> <a href="/tags/sklearn/" style="font-size: 16.67px;">sklearn</a> <a href="/tags/statistics/" style="font-size: 10px;">statistics</a> <a href="/tags/t-test/" style="font-size: 10px;">t-test</a> <a href="/tags/z-test/" style="font-size: 10px;">z-test</a>
+						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/about-me/" style="font-size: 10px;">about-me</a> <a href="/tags/f-test/" style="font-size: 10px;">f-test</a> <a href="/tags/feature-extraction/" style="font-size: 10px;">feature-extraction</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hortonworks/" style="font-size: 10px;">hortonworks</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/knn/" style="font-size: 10px;">knn</a> <a href="/tags/mapreduce/" style="font-size: 16.67px;">mapreduce</a> <a href="/tags/predicting-poker-hands/" style="font-size: 20px;">predicting-poker-hands</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/random-forest/" style="font-size: 13.33px;">random-forest</a> <a href="/tags/sklearn/" style="font-size: 16.67px;">sklearn</a> <a href="/tags/statistics/" style="font-size: 10px;">statistics</a> <a href="/tags/t-test/" style="font-size: 10px;">t-test</a> <a href="/tags/z-test/" style="font-size: 10px;">z-test</a>
 					</div>
 				</section>
 				
@@ -206,9 +206,9 @@
         <p>Tom decided to use random forest model, a famous model which is easy to use, to predict poker hands. He wanted to introduce it, but first, he want to introduce decision tree model.<br><a id="more"></a></p>
 <h1 id="Decision-Tree"><a href="#Decision-Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h1><p>Random forest is a famous algorithm that has a good performance, and it is easy to explain how it works.<br>But before Tom introduce Random forest model to you, he want first cover the concept of a decision tree.<br>A decision tree is a tree-like classification model of decisions and their possible consequences. Here is a decision tree of how to distinguish products from Apple.</p>
 <p><img src="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/decision-tree.png" alt="An image of a decision tree"></p>
-<p>Sklearn provides an simple way to generate a decision tree<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</div><div class="line">clf = DecisionTreeClassifier()</div><div class="line">clf = clf.fit(X_train, y_train)</div></pre></td></tr></table></figure></p>
+<p>Sklearn provides an simple way to generate a decision tree<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line">clf = DecisionTreeClassifier()</span><br><span class="line">clf = clf.fit(X_train, y_train)</span><br></pre></td></tr></table></figure></p>
 <h1 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h1><p>A decision tree is too simplistic and very sensitive to biased data, to avoid this bias, Tom can use multiple decision trees, which ensembles a random forest model. A random forest arbitrarily chooses a subset of all the features and builds a decision tree with them. With the increase of tree numbers, the biases will tend to balance.</p>
-<p>Sklearn also provides an simple way to use the random forest model directly.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.emsemble <span class="keyword">import</span> RandomForestClassifier</div><div class="line">clf = RandomForestClassifier()</div><div class="line">clf = clf.fit(X_train, y_train)</div></pre></td></tr></table></figure></p>
+<p>Sklearn also provides an simple way to use the random forest model directly.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.emsemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line">clf = RandomForestClassifier()</span><br><span class="line">clf = clf.fit(X_train, y_train)</span><br></pre></td></tr></table></figure></p>
 <h1 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h1><p>So Tom decided to use random forest directly to generate a baseline.</p>
 <script src="//gist.github.com/6728a29115522ab83bdb.js?file=baseline.py"></script>
 <p>Result of the classifier:</p>
@@ -453,7 +453,7 @@
 </tbody>
 </table>
 <p>From all the statistical result shown above, we can see that the model did a poor job classifying every thing except class 0 and class 1. In fact no class other than class 0 or class 1 are in the prediction result. The result was bad but Tom decided to start from here.</p>
-<h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p><a href="https://en.wikipedia.org/wiki/Decision_tree" target="_blank" rel="external">https://en.wikipedia.org/wiki/Decision_tree</a><br><a href="http://scikit-learn.org/stable/modules/tree.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/tree.html</a><br><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a></p>
+<h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p><a href="https://en.wikipedia.org/wiki/Decision_tree" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Decision_tree</a><br><a href="http://scikit-learn.org/stable/modules/tree.html" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/tree.html</a><br><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a></p>
 
       
     </div>
@@ -463,18 +463,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/17/About-Me/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-4/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          About Me
+          Escaping: Predicting Poker Hands, Part 4
         
       </div>
     </a>
   
   
-    <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Escaping: Predicting Poker Hands, Part 1</div>
+    <a href="/2016/01/17/How-to-Create-a-Blog-Using-Hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">How to Create a Blog Using Hexo</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -577,6 +577,23 @@ MathJax.Hub.Queue(function() {
 
 
 
-  </div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

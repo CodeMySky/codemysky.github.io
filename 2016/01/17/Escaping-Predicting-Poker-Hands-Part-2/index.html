@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Escaping: Predicting Poker Hands, Part 2 | CodeMySky&#39;s Blog</title>
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="CodeMySky&#39;s Blog">
 <meta property="og:description" content="We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set. testing.123">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-29T06:02:27.143Z">
+<meta property="og:updated_time" content="2017-09-04T19:35:57.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Escaping: Predicting Poker Hands, Part 2">
 <meta name="twitter:description" content="We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set. testing.123">
@@ -25,11 +25,11 @@
     <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/require-2.1.6,jquery-1.9.1.min.js"></script>
+  <script src="/js/require-2.1.6,jquery-1.9.1.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/about-me/" style="font-size: 10px;">about-me</a> <a href="/tags/f-test/" style="font-size: 10px;">f-test</a> <a href="/tags/feature-extraction/" style="font-size: 10px;">feature-extraction</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hortonworks/" style="font-size: 10px;">hortonworks</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/knn/" style="font-size: 10px;">knn</a> <a href="/tags/mapreduce/" style="font-size: 16.67px;">mapreduce</a> <a href="/tags/predicting-poker-hands/" style="font-size: 20px;">predicting-poker-hands</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/random-forest/" style="font-size: 13.33px;">random-forest</a> <a href="/tags/sklearn/" style="font-size: 16.67px;">sklearn</a> <a href="/tags/statistics/" style="font-size: 10px;">statistics</a> <a href="/tags/t-test/" style="font-size: 10px;">t-test</a> <a href="/tags/z-test/" style="font-size: 10px;">z-test</a>
+						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/about-me/" style="font-size: 10px;">about-me</a> <a href="/tags/f-test/" style="font-size: 10px;">f-test</a> <a href="/tags/feature-extraction/" style="font-size: 10px;">feature-extraction</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hortonworks/" style="font-size: 10px;">hortonworks</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/knn/" style="font-size: 10px;">knn</a> <a href="/tags/mapreduce/" style="font-size: 16.67px;">mapreduce</a> <a href="/tags/predicting-poker-hands/" style="font-size: 20px;">predicting-poker-hands</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/random-forest/" style="font-size: 13.33px;">random-forest</a> <a href="/tags/sklearn/" style="font-size: 16.67px;">sklearn</a> <a href="/tags/statistics/" style="font-size: 10px;">statistics</a> <a href="/tags/t-test/" style="font-size: 10px;">t-test</a> <a href="/tags/z-test/" style="font-size: 10px;">z-test</a>
 					</div>
 				</section>
 				
@@ -204,9 +204,9 @@
         <p>We left Tom in a dangerous situation. To win the game, Tom needs to accurately predict poker hands. His predictions must rely on a training and test set. testing.123<br><a id="more"></a></p>
 <h1 id="Training-Set"><a href="#Training-Set" class="headerlink" title="Training Set"></a>Training Set</h1><p>When data scientists start their analysis process, they usually first split all data into two sets, a training set and a test set. The data used to discover potentially predictive relationships is called a training set. But why do we need a test set? Isn’t more data we have the better possibility to find more convincing relationships? The test set tests the validity of relationships established in the training set.</p>
 <h1 id="Test-Set"><a href="#Test-Set" class="headerlink" title="Test Set"></a>Test Set</h1><p>So we need a data set which is independent from a training set to evaluate the result of the training. We assume that the test set has the same distribution as the training set. Usually we take about 30% of the total data set as test set. But while the data set is very large, we can take 5% or 3% to be the test set.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</div><div class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.3</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.3</span>)</span><br></pre></td></tr></table></figure>
 <p>In this case, the cards Tom used in games with the tribe becomes the test set.</p>
-<h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p><a href="https://en.wikipedia.org/wiki/Test_set" target="_blank" rel="external">https://en.wikipedia.org/wiki/Test_set</a></p>
+<h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p><a href="https://en.wikipedia.org/wiki/Test_set" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Test_set</a></p>
 
       
     </div>
@@ -216,18 +216,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/17/Mapreduce-Start-from-Word-Count/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Mapreduce: Start from Word Count
+          Escaping: Predicting Poker Hands, Part 1
         
       </div>
     </a>
   
   
-    <a href="/2016/01/17/MapReduce-Run-Word-Count-with-Python-and-Hadoop/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MapReduce: Run Word Count with Python and Hadoop</div>
+    <a href="/2016/01/17/About-Me/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">About Me</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -330,6 +330,23 @@ MathJax.Hub.Queue(function() {
 
 
 
-  </div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

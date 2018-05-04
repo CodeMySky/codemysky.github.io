@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Mapreduce: Start from Word Count | CodeMySky&#39;s Blog</title>
@@ -27,11 +27,11 @@
     <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/require-2.1.6,jquery-1.9.1.min.js"></script>
+  <script src="/js/require-2.1.6,jquery-1.9.1.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
@@ -106,7 +106,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/about-me/" style="font-size: 10px;">about-me</a> <a href="/tags/f-test/" style="font-size: 10px;">f-test</a> <a href="/tags/feature-extraction/" style="font-size: 10px;">feature-extraction</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hortonworks/" style="font-size: 10px;">hortonworks</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/knn/" style="font-size: 10px;">knn</a> <a href="/tags/mapreduce/" style="font-size: 16.67px;">mapreduce</a> <a href="/tags/predicting-poker-hands/" style="font-size: 20px;">predicting-poker-hands</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/random-forest/" style="font-size: 13.33px;">random-forest</a> <a href="/tags/sklearn/" style="font-size: 16.67px;">sklearn</a> <a href="/tags/statistics/" style="font-size: 10px;">statistics</a> <a href="/tags/t-test/" style="font-size: 10px;">t-test</a> <a href="/tags/z-test/" style="font-size: 10px;">z-test</a>
+						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/about-me/" style="font-size: 10px;">about-me</a> <a href="/tags/f-test/" style="font-size: 10px;">f-test</a> <a href="/tags/feature-extraction/" style="font-size: 10px;">feature-extraction</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hortonworks/" style="font-size: 10px;">hortonworks</a> <a href="/tags/introduction/" style="font-size: 10px;">introduction</a> <a href="/tags/knn/" style="font-size: 10px;">knn</a> <a href="/tags/mapreduce/" style="font-size: 16.67px;">mapreduce</a> <a href="/tags/predicting-poker-hands/" style="font-size: 20px;">predicting-poker-hands</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/random-forest/" style="font-size: 13.33px;">random-forest</a> <a href="/tags/sklearn/" style="font-size: 16.67px;">sklearn</a> <a href="/tags/statistics/" style="font-size: 10px;">statistics</a> <a href="/tags/t-test/" style="font-size: 10px;">t-test</a> <a href="/tags/z-test/" style="font-size: 10px;">z-test</a>
 					</div>
 				</section>
 				
@@ -205,7 +205,7 @@
       
         <p>As a fan of big data, the most basic concept of big data is hadoop.<br>What is hadoop?<br>Hadoop is a open-souce software framework. containing storage part: Hadoop Distributed File System (HDFS) and a processing part called MapReduce.<br><a id="more"></a></p>
 <h1 id="Hadoop-Distributed-File-System-HDFS"><a href="#Hadoop-Distributed-File-System-HDFS" class="headerlink" title="Hadoop Distributed File System (HDFS)"></a>Hadoop Distributed File System (HDFS)</h1><p>HDFS splits files into large blocks and distribute them across nodes. HDFS will usually have three copies of a data block, if any one of them failed, the rest of them can make a replication quickly.</p>
-<p>The components of HDFS, mainly includes one name node and multiple data node.<br><img src="/2016/01/17/Mapreduce-Start-from-Word-Count/Fig1-StoragesOnDataNode.png" alt="[HDFS Storage Architecture]" title="[HDFS Storage Architecture]"></p>
+<p>The components of HDFS, mainly includes one name node and multiple data node.<br><img src="/2016/01/17/Mapreduce-Start-from-Word-Count/Fig1-StoragesOnDataNode.png" title="[HDFS Storage Architecture]"></p>
 <p>You can see that, there is only one name node, which acts like an interface to the client/applications. It stores the meta data of the entire file system of HDFS. If the name node failed, the whole HDFS will disappear. So if you have limited money for HDFS, please set the namenode on your best machine.</p>
 <p>Question: Why there are 3 replications instead of 1, 2, or 5?<br>Answer:</p>
 <ol>
@@ -224,18 +224,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/17/About-Me/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Escaping: Predicting Poker Hands, Part 1
+          About Me
         
       </div>
     </a>
   
   
-    <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Escaping: Predicting Poker Hands, Part 2</div>
+    <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Escaping: Predicting Poker Hands, Part 4</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -338,6 +338,23 @@ MathJax.Hub.Queue(function() {
 
 
 
-  </div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
