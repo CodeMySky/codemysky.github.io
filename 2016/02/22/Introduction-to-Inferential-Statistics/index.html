@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="CodeMySky&#39;s Blog">
 <meta property="og:description" content="As a data scientist, we have different methods to treat the data. But how can we know the whether our methods are doing good or our model is just guessing.We can use a serious of test to decide whethe">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2016-06-19T04:34:46.000Z">
+<meta property="og:updated_time" content="2018-05-05T00:04:35.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to Inferential Statistics">
 <meta name="twitter:description" content="As a data scientist, we have different methods to treat the data. But how can we know the whether our methods are doing good or our model is just guessing.We can use a serious of test to decide whethe">
@@ -203,17 +203,17 @@
       
         <p>As a data scientist, we have different methods to treat the data. But how can we know the whether our methods are doing good or our model is just guessing.<br>We can use a serious of test to decide whether our model is good or not including z-test, t-test and f-test.<br><a id="more"></a></p>
 <h1 id="Estimation"><a href="#Estimation" class="headerlink" title="Estimation"></a>Estimation</h1><h2 id="Population-Mean-vs-Sample-Mean"><a href="#Population-Mean-vs-Sample-Mean" class="headerlink" title="Population Mean vs. Sample Mean"></a>Population Mean vs. Sample Mean</h2><p>For a very large population, it is very hard to get the distribution of the entire population. Whatever distribution of population is, the sample mean will have a normal distribution.</p>
-<h2 id="Margin-of-Error"><a href="#Margin-of-Error" class="headerlink" title="Margin of Error"></a>Margin of Error</h2><span>$\frac{2\sigma}{\sqrt{n}}$</span><!-- Has MathJax -->
-<h2 id="Confidence-Bond"><a href="#Confidence-Bond" class="headerlink" title="Confidence Bond"></a>Confidence Bond</h2><h2 id="Z-Score"><a href="#Z-Score" class="headerlink" title="Z-Score"></a>Z-Score</h2><h1 id="Hypothesis-Testing"><a href="#Hypothesis-Testing" class="headerlink" title="Hypothesis Testing"></a>Hypothesis Testing</h1><h2 id="Alpha-Value"><a href="#Alpha-Value" class="headerlink" title="Alpha Value"></a>Alpha Value</h2><h2 id="Z-Critical-Value"><a href="#Z-Critical-Value" class="headerlink" title="Z Critical Value"></a>Z Critical Value</h2><h2 id="One-Tail-Two-Tail-Test-Critical-Value"><a href="#One-Tail-Two-Tail-Test-Critical-Value" class="headerlink" title="One Tail/Two Tail Test/Critical Value"></a>One Tail/Two Tail Test/Critical Value</h2><h2 id="Reject-Retain-Null"><a href="#Reject-Retain-Null" class="headerlink" title="Reject/Retain Null"></a>Reject/Retain Null</h2><h2 id="Alternative-Hypothesis"><a href="#Alternative-Hypothesis" class="headerlink" title="Alternative Hypothesis"></a>Alternative Hypothesis</h2><h1 id="Z-test-T-test-and-F-test"><a href="#Z-test-T-test-and-F-test" class="headerlink" title="Z-test, T-test and F-test"></a>Z-test, T-test and F-test</h1><p>We can use statistics to compare whether two things are the same.<br>For example, we want to know if a drug takes effect on patients.<br>We can compare treated patients with normal patients.</p>
+<h2 id="Margin-of-Error"><a href="#Margin-of-Error" class="headerlink" title="Margin of Error"></a>Margin of Error</h2><script type="math/tex; mode=display">
+\frac{2\sigma}{\sqrt{n}}</script><h2 id="Confidence-Bond"><a href="#Confidence-Bond" class="headerlink" title="Confidence Bond"></a>Confidence Bond</h2><h2 id="Z-Score"><a href="#Z-Score" class="headerlink" title="Z-Score"></a>Z-Score</h2><h1 id="Hypothesis-Testing"><a href="#Hypothesis-Testing" class="headerlink" title="Hypothesis Testing"></a>Hypothesis Testing</h1><h2 id="Alpha-Value"><a href="#Alpha-Value" class="headerlink" title="Alpha Value"></a>Alpha Value</h2><h2 id="Z-Critical-Value"><a href="#Z-Critical-Value" class="headerlink" title="Z Critical Value"></a>Z Critical Value</h2><h2 id="One-Tail-Two-Tail-Test-Critical-Value"><a href="#One-Tail-Two-Tail-Test-Critical-Value" class="headerlink" title="One Tail/Two Tail Test/Critical Value"></a>One Tail/Two Tail Test/Critical Value</h2><h2 id="Reject-Retain-Null"><a href="#Reject-Retain-Null" class="headerlink" title="Reject/Retain Null"></a>Reject/Retain Null</h2><h2 id="Alternative-Hypothesis"><a href="#Alternative-Hypothesis" class="headerlink" title="Alternative Hypothesis"></a>Alternative Hypothesis</h2><h1 id="Z-test-T-test-and-F-test"><a href="#Z-test-T-test-and-F-test" class="headerlink" title="Z-test, T-test and F-test"></a>Z-test, T-test and F-test</h1><p>We can use statistics to compare whether two things are the same.<br>For example, we want to know if a drug takes effect on patients.<br>We can compare treated patients with normal patients.</p>
 <h1 id="Z-test"><a href="#Z-test" class="headerlink" title="Z-test"></a>Z-test</h1><p>If we know the mean and standard deviation of the population, we can<br>determine whether a sample mean fails in the range of the sampling distribution of<br>the population.</p>
 <p>That is Z-test.</p>
 <h2 id="Z-Distribution"><a href="#Z-Distribution" class="headerlink" title="Z-Distribution"></a>Z-Distribution</h2><p>The distribution of Z score looks like this.<br>TODO: Image of Z Distribution.</p>
-<h2 id="Way-to-calculate-Z-score"><a href="#Way-to-calculate-Z-score" class="headerlink" title="Way to calculate Z-score"></a>Way to calculate Z-score</h2><span>$Z = \frac{Sample Mean}{Standard Error}$</span><!-- Has MathJax -->
-<h2 id="Z-Critical-Value-1"><a href="#Z-Critical-Value-1" class="headerlink" title="Z-Critical Value"></a>Z-Critical Value</h2><p>If the Z-score is larger than Z critical value, we can determine that the sample is different from the population.<br>normally we use three alpha levels:</p>
+<h2 id="Way-to-calculate-Z-score"><a href="#Way-to-calculate-Z-score" class="headerlink" title="Way to calculate Z-score"></a>Way to calculate Z-score</h2><script type="math/tex; mode=display">
+Z = \frac{Sample Mean}{Standard Error}</script><h2 id="Z-Critical-Value-1"><a href="#Z-Critical-Value-1" class="headerlink" title="Z-Critical Value"></a>Z-Critical Value</h2><p>If the Z-score is larger than Z critical value, we can determine that the sample is different from the population.<br>normally we use three alpha levels:</p>
 <ol>
-<li>alpha = 0.05 (5%)  <->  z critical value = 1.65</-></li>
-<li>alpha = 0.01 (1%)  <->  z critical value = 2.33</-></li>
-<li>alpha = 0.001 (0.1%) <-> z critical value = 3.08</-></li>
+<li>alpha = 0.05 (5%)  &lt;-&gt;  z critical value = 1.65</li>
+<li>alpha = 0.01 (1%)  &lt;-&gt;  z critical value = 2.33</li>
+<li>alpha = 0.001 (0.1%) &lt;-&gt; z critical value = 3.08</li>
 </ol>
 <h2 id="One-tail-test-and-two-tail-test"><a href="#One-tail-test-and-two-tail-test" class="headerlink" title="One tail test and two tail test"></a>One tail test and two tail test</h2><p>As we can see from the Z-distribution, we can have test the treatment in two ways.</p>
 <h3 id="One-tail-test"><a href="#One-tail-test" class="headerlink" title="One tail test"></a>One tail test</h3><p>We can only test the direction of the treatment group. Like is the treatment lower than the normal group or the treatment higher than normal group.<br>We can also test both directions of the treatment group. For example, whether the treatment is different from the normal group, either higher or lower.</p>
@@ -237,8 +237,8 @@
     </a>
   
   
-    <a href="/2016/01/17/MapReduce-Run-Word-Count-with-Python-and-Hadoop/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MapReduce: Run Word Count with Python and Hadoop</div>
+    <a href="/2016/01/17/About-Me/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">About Me</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -341,23 +341,6 @@ MathJax.Hub.Queue(function() {
 
 
 
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

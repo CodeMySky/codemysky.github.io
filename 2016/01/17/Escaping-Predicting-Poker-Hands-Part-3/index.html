@@ -212,6 +212,7 @@
 <h1 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h1><p>So Tom decided to use random forest directly to generate a baseline.</p>
 <script src="//gist.github.com/6728a29115522ab83bdb.js?file=baseline.py"></script>
 <p>Result of the classifier:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -302,7 +303,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Confusion Matrix:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -452,6 +455,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>From all the statistical result shown above, we can see that the model did a poor job classifying every thing except class 0 and class 1. In fact no class other than class 0 or class 1 are in the prediction result. The result was bad but Tom decided to start from here.</p>
 <h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p><a href="https://en.wikipedia.org/wiki/Decision_tree" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Decision_tree</a><br><a href="http://scikit-learn.org/stable/modules/tree.html" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/tree.html</a><br><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a></p>
 
@@ -463,20 +467,15 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Escaping: Predicting Poker Hands, Part 4
+          Escaping: Predicting Poker Hands, Part 1
         
       </div>
     </a>
   
-  
-    <a href="/2016/01/17/How-to-Create-a-Blog-Using-Hexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">How to Create a Blog Using Hexo</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
   
 </nav>
 
@@ -577,23 +576,6 @@ MathJax.Hub.Queue(function() {
 
 
 
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
