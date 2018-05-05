@@ -342,6 +342,16 @@
 </tbody>
 </table>
 </div>
+<h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><ul>
+<li>The names of all salespeople that have an order with Samsonic.</li>
+<li>The names of all salespeople that do not have any order with Samsonic.</li>
+<li>The name of all salespeople that have 2 or more orders.</li>
+<li>Write a SQL statement to insert rows into a table called highAchiever(Name, Age), where a salesperson must have a salary of 100,000 or greater to be included in the table.</li>
+</ul>
+<h2 id="Answers"><a href="#Answers" class="headerlink" title="Answers"></a>Answers</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- The names of all salespeople that have an order with Samsonic.</span></span><br><span class="line"><span class="keyword">SELECT</span> sp.Name</span><br><span class="line"><span class="keyword">FROM</span> Salesperson sp</span><br><span class="line"><span class="keyword">JOIN</span> Orders o <span class="keyword">ON</span> sp.ID = o.salesperson_id</span><br><span class="line"><span class="keyword">JOIN</span> Customer c <span class="keyword">on</span> c.ID = o.cust_id</span><br><span class="line"><span class="keyword">WHERE</span> c.Name = <span class="string">'Samsonic'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- The names of all salespeople that do not have any order with Samsonic.</span></span><br><span class="line"><span class="keyword">SELECT</span> sp.Name</span><br><span class="line"><span class="keyword">FROM</span> Salesperson sp</span><br><span class="line"><span class="keyword">WHERE</span> sp.ID <span class="keyword">NOT</span> <span class="keyword">IN</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> o.salesperson_id</span><br><span class="line">    <span class="keyword">FROM</span> Orders o <span class="keyword">ON</span> o.cust_id = c.ID</span><br><span class="line">    <span class="keyword">WHERE</span> c.Name == <span class="string">'Samsonic'</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- The name of all salespeople that have 2 or more orders</span></span><br><span class="line"><span class="keyword">SELECT</span> sp.Name</span><br><span class="line"><span class="keyword">FROM</span> Salesperson sp</span><br><span class="line"><span class="keyword">JOIN</span> Orders o <span class="keyword">ON</span> sp.ID = o.salesperson_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> o.salesperson_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt;= <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Write a SQL statement to insert rows into a table called highAchiever(Name, Age), where a salesperson must have a salary of 100,000 or greater to be included in the table.</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> highAchiever (<span class="keyword">Name</span>, Age)</span><br><span class="line">(</span><br><span class="line">    <span class="keyword">SELECT</span> sp.Name, sp.Age</span><br><span class="line">    <span class="keyword">FROM</span> Salesperson sp</span><br><span class="line">    <span class="keyword">WHERE</span> sp.Salary &gt;= <span class="number">100000</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="http://www.programmerinterview.com/index.php/database-sql/practice-interview-question-1/" target="_blank" rel="noopener">http://www.programmerinterview.com/index.php/database-sql/practice-interview-question-1/</a></li>
 </ul>
@@ -570,6 +580,127 @@
 
 
   
+    <article id="post-How-to-Create-a-Blog-Using-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/17/How-to-Create-a-Blog-Using-Hexo/" class="article-date">
+  	<time datetime="2016-01-17T23:11:08.000Z" itemprop="datePublished">2016-01-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/How-to-Create-a-Blog-Using-Hexo/">How to Create a Blog Using Hexo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://hexo.io" title="Hexo" target="_blank" rel="noopener">Hexo</a> is a fast, simple &amp; powerful blog framework built on Node.js. By using Hexo, I avoided a lot of frustration building a blog while concentrate myself on blog.</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/17/How-to-Create-a-Blog-Using-Hexo/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Escaping-Predicting-Poker-Hands-Part-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/" class="article-date">
+  	<time datetime="2016-01-17T23:11:08.000Z" itemprop="datePublished">2016-01-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/">Escaping: Predicting Poker Hands, Part 1</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Our hero Tom, who used to be a data scientist, went on an adventure, predicting poker hands. He wanted to share his experience here and he hopes it will be helpful for you to learn how to explore the big data world.</p>
+<p>In this beginner’s summary, Tom will first talk about some basic concepts of big data, including training sets, test sets. Tom then will talk about a random forest model and how to rate models in general. In the end, Tom will show why features are important to generate accurate results.<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/predicting-poker-hands/">predicting-poker-hands</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-About-Me" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -612,150 +743,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/01/17/About-Me/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-MapReduce-Run-Word-Count-with-Python-and-Hadoop" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/17/MapReduce-Run-Word-Count-with-Python-and-Hadoop/" class="article-date">
-  	<time datetime="2016-01-17T23:11:08.000Z" itemprop="datePublished">2016-01-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/17/MapReduce-Run-Word-Count-with-Python-and-Hadoop/">MapReduce: Run Word Count with Python and Hadoop</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Install-Hortonworks-Sandbox"><a href="#Install-Hortonworks-Sandbox" class="headerlink" title="Install Hortonworks Sandbox"></a>Install Hortonworks Sandbox</h2><p>Hortonworks sandbox provides a nice playground for hadoop beginners to test their big data application.</p>
-<ul>
-<li><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">Windows and Linux: Install Virtual Box</a></li>
-<li><a href="https://www.vmware.com/go/downloadfusion" target="_blank" rel="noopener">MAC: Install VMWare Fusion</a></li>
-<li><a href="https://hortonworks.com/downloads/" target="_blank" rel="noopener">Install Hortonworks Sandbox</a></li>
-<li><a href="http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/" target="_blank" rel="noopener">Follow tutorial to setup environment and password</a></li>
-<li>The python shipped with hortonworks is Python 2.6, which is really old.</li>
-<li>Install Anaconda3 to upgrade python to Python 3.6 to default location /root/anaconda3</li>
-<li><a href="https://www.continuum.io/downloads" target="_blank" rel="noopener">Anaconda</a></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash Anaconda3-XXX-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
-<h2 id="Mapper"><a href="#Mapper" class="headerlink" title="Mapper"></a>Mapper</h2><p>Code here is a modified version of mapper in <a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/" target="_blank" rel="noopener">this blog</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/root/anaconda3/bin/python</span></span><br><span class="line"><span class="comment"># Filename: word_count_mapper.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># input comes from STDIN (standard input)</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    <span class="comment"># remove leading and trailing whitespace</span></span><br><span class="line">    line = line.strip()</span><br><span class="line">    <span class="comment"># split the line into words</span></span><br><span class="line">    words = line.split()</span><br><span class="line">    <span class="comment"># increase counters</span></span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        <span class="comment"># write the results to STDOUT (standard output);</span></span><br><span class="line">        <span class="comment"># what we output here will be the input for the</span></span><br><span class="line">        <span class="comment"># Reduce step, i.e. the input for reducer.py</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment"># tab-delimited; the trivial word count is 1</span></span><br><span class="line">        print(<span class="string">'&#123;&#125;\t&#123;&#125;'</span>.format(word, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-<h2 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h2><p>Code here is a modified version of reducer in <a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/" target="_blank" rel="noopener">this blog</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/root/anaconda3/bin/python</span></span><br><span class="line"><span class="comment"># Filename: word_count_reducer.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> itemgetter</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">current_word = <span class="keyword">None</span></span><br><span class="line">current_count = <span class="number">0</span></span><br><span class="line">word = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># input comes from STDIN</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    <span class="comment"># remove leading and trailing whitespace</span></span><br><span class="line">    line = line.strip()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># parse the input we got from mapper.py</span></span><br><span class="line">    word, count = line.split(<span class="string">'\t'</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># convert count (currently a string) to int</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        count = int(count)</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        <span class="comment"># count was not a number, so silently</span></span><br><span class="line">        <span class="comment"># ignore/discard this line</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># this IF-switch only works because Hadoop sorts map output</span></span><br><span class="line">    <span class="comment"># by key (here: word) before it is passed to the reducer</span></span><br><span class="line">    <span class="keyword">if</span> current_word == word:</span><br><span class="line">        current_count += count</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> current_word:</span><br><span class="line">            <span class="comment"># write result to STDOUT</span></span><br><span class="line">            print(<span class="string">'&#123;&#125;\t&#123;&#125;'</span>.format(current_word, current_count))</span><br><span class="line">        current_count = count</span><br><span class="line">        current_word = word</span><br><span class="line"></span><br><span class="line"><span class="comment"># do not forget to output the last word if needed!</span></span><br><span class="line"><span class="keyword">if</span> current_word == word:</span><br><span class="line">    print(<span class="string">'&#123;&#125;\t&#123;&#125;'</span>.format(current_word, current_count))</span><br></pre></td></tr></table></figure>
-<h2 id="Test-Mapper-and-Reducer"><a href="#Test-Mapper-and-Reducer" class="headerlink" title="Test Mapper and Reducer"></a>Test Mapper and Reducer</h2><ul>
-<li>Download <a href="https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt" target="_blank" rel="noopener">Shakespeare</a> </li>
-<li><p>Scp the txt into virtual machine, you can use scp on Mac and Linux <figure class="highlight plain"><figcaption><span>-P 2222 t8.shakespeare.txt root@localhost:/root/ ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- You can use [WinSCP](https://winscp.net/eng/download.php) to put the txt into virtual maxhine</span><br><span class="line">- Make mapper and reducer executable ```chmod +x word_count_mapper.py word_count_reducer.py</span><br></pre></td></tr></table></figure></p>
-</li>
-<li><p><strong>Test your mapper and reducer locally</strong> <figure class="highlight plain"><figcaption><span>t8.shakespear.txt | word_count_mapper.py | sort | word_count_reducer.py  ``` , this step is important because hadoop doesn't show the exact error output from python, so it's hard to debug python in hadoop.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- Upload the txt into hdfs under ```/demo/data```, using [Ambari file view](http://localhost:8080/#/main/views/FILES/1.0.0/AUTO_FILES_INSTANCE)</span><br><span class="line">- Test mapper and reducer using hadoop</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -file /root/mapper.py -mapper mapper.py -file /root/reducer.py -reducer reducer.py -input /demo/data/t8.shakespeare.txt -output /demo/output</span><br></pre></td></tr></table></figure></p>
-</li>
-<li><p>Clean up the output folder after the experiment, this step is important because hadoop will not overwrite existing folder</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -rm -r /demo/output</span><br></pre></td></tr></table></figure>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/" target="_blank" rel="noopener">http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/</a></li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hortonworks/">hortonworks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mapreduce/">mapreduce</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Escaping-Predicting-Poker-Hands-Part-4" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-4/" class="article-date">
-  	<time datetime="2016-01-17T23:11:08.000Z" itemprop="datePublished">2016-01-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-4/">Escaping: Predicting Poker Hands, Part 4</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>New features are created to help improve performance.<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/feature-extraction/">feature-extraction</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/predicting-poker-hands/">predicting-poker-hands</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/random-forest/">random-forest</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklearn/">sklearn</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-4/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -834,10 +821,10 @@
 
 
   
-    <article id="post-Escaping-Predicting-Poker-Hands-Part-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Escaping-Predicting-Poker-Hands-Part-3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/" class="article-date">
+      <a href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/" class="article-date">
   	<time datetime="2016-01-17T23:11:08.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
     </div>
@@ -851,7 +838,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/">Escaping: Predicting Poker Hands, Part 1</a>
+      <a class="article-title" href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/">Escaping: Predicting Poker Hands, Part 5</a>
     </h1>
   
 
@@ -860,8 +847,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Our hero Tom, who used to be a data scientist, went on an adventure, predicting poker hands. He wanted to share his experience here and he hopes it will be helpful for you to learn how to explore the big data world.</p>
-<p>In this beginner’s summary, Tom will first talk about some basic concepts of big data, including training sets, test sets. Tom then will talk about a random forest model and how to rate models in general. In the end, Tom will show why features are important to generate accurate results.<br>
+        <p>Tom decided to use random forest model, a famous model which is easy to use, to predict poker hands. He wanted to introduce it, but first, he want to introduce decision tree model.<br>
       
     </div>
     
@@ -869,14 +855,14 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/predicting-poker-hands/">predicting-poker-hands</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/predicting-poker-hands/">predicting-poker-hands</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/random-forest/">random-forest</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklearn/">sklearn</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-1/#more">more >></a>
+          <a  href="/2016/01/17/Escaping-Predicting-Poker-Hands-Part-3/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
