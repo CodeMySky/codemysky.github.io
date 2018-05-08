@@ -190,7 +190,49 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="SQL-Practice-2"><a href="#SQL-Practice-2" class="headerlink" title="SQL Practice 2"></a>SQL Practice 2</h1><h2 id="Table-Descirption"><a href="#Table-Descirption" class="headerlink" title="Table Descirption"></a>Table Descirption</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>User</th>
+<th>UserHistory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_id</td>
+<td>user_id</td>
+</tr>
+<tr>
+<td>name</td>
+<td>date</td>
+</tr>
+<tr>
+<td>phone_num</td>
+<td>action</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><ul>
+<li>Return the name, phone number and most recent date for any user that has logged in over the last 30 days. <ul>
+<li>Every time a user logs in a new row is inserted into the UserHistor table with user_id, current date and action “logged_on”</li>
+</ul>
+</li>
+<li>Determine which user_ids in the User table are not contained in the UserHistory table.<ul>
+<li>assume the UserHistory table has a subset of the user_ids in User table.</li>
+<li>Do not use the SQL MINUS statement.</li>
+<li>The UserHistory table can have multiple entries for each user_id.</li>
+</ul>
+</li>
+<li>Avoid using subqueries.</li>
+</ul>
+<h2 id="Answers"><a href="#Answers" class="headerlink" title="Answers"></a>Answers</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Return the name, phone number and most recent date for any user that has logged in over the last 30 days.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> u.name, u.phone_num, <span class="keyword">max</span>(uh.date) last_login_date</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">User</span> u <span class="keyword">JOIN</span> UserHistory uh</span><br><span class="line"><span class="keyword">ON</span> u.user_id = uh.user_id</span><br><span class="line"><span class="keyword">WHERE</span> uh.action = <span class="string">'logged_on'</span> <span class="keyword">AND</span> uh.date &gt;= <span class="built_in">date</span>(<span class="string">'now'</span>,<span class="string">'-30 day'</span>)</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> u.user_id, u.name, u.phone_num;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Determine which user_ids in the User table are not contained in the UserHistory table.</span></span><br><span class="line"><span class="keyword">SELECT</span> u.user_id</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">User</span> u <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> UserHistory uh</span><br><span class="line"><span class="keyword">ON</span> u.user_id = uh.user_id</span><br><span class="line"><span class="keyword">WHERE</span> uh.user_id <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://www.programmerinterview.com/index.php/database-sql/practice-interview-question-2/" target="_blank" rel="noopener">https://www.programmerinterview.com/index.php/database-sql/practice-interview-question-2/</a></li>
+</ul>
+<h2 id="Preparation-Statements"><a href="#Preparation-Statements" class="headerlink" title="Preparation Statements"></a>Preparation Statements</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">User</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">User</span> (</span><br><span class="line">    user_id <span class="built_in">int</span>,</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>,</span><br><span class="line">    phone_num <span class="built_in">varchar</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">User</span> (<span class="string">'user_id'</span>, <span class="string">'name'</span>, <span class="string">'phone_num'</span>)</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span> , <span class="string">'Abe'</span>    , <span class="string">'111'</span> ),</span><br><span class="line">(<span class="number">2</span> , <span class="string">'Bob'</span>    , <span class="string">'222'</span> ),</span><br><span class="line">(<span class="number">5</span> , <span class="string">'Chris'</span>  , <span class="string">'333'</span> ),</span><br><span class="line">(<span class="number">7</span> , <span class="string">'Dan'</span>    , <span class="string">'444'</span> ),</span><br><span class="line">(<span class="number">8</span> , <span class="string">'Ken'</span>    , <span class="string">'555'</span> ),</span><br><span class="line">(<span class="number">11</span>, <span class="string">'Joe'</span>    , <span class="string">'666'</span> );</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> UserHistory;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> UserHistory (</span><br><span class="line">    user_id <span class="built_in">int</span>,</span><br><span class="line">    <span class="built_in">date</span> <span class="built_in">varchar</span>,</span><br><span class="line">    <span class="keyword">action</span> <span class="built_in">varchar</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> UserHistory (<span class="string">'user_id'</span>, <span class="string">'date'</span>, <span class="string">'action'</span>)</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'2018-05-05'</span>, <span class="string">'logged_on'</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'2017-12-01'</span>, <span class="string">'logged_on'</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="string">'2017-12-01'</span>, <span class="string">'logged_on'</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="string">'2018-05-05'</span>, <span class="string">'logged_on'</span>),</span><br><span class="line">(<span class="number">7</span>, <span class="string">'2018-05-05'</span>, <span class="string">'logged_off'</span>),</span><br><span class="line">(<span class="number">8</span>, <span class="string">'2018-05-01'</span>, <span class="string">'logged_on'</span>),</span><br><span class="line">(<span class="number">8</span>, <span class="string">'2018-05-05'</span>, <span class="string">'logged_on'</span>);</span><br></pre></td></tr></table></figure>
       
     </div>
     
