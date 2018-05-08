@@ -4,20 +4,20 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>SQL Practice 3 | CodeMySky&#39;s Blog</title>
+  <title>Data Practice 5 | CodeMySky&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SQL Practice 3QuestionGiven this table 123CREATE TABLE Compare (    Numbers INT) Write a SQL query that will return the maximum value from the “Numbers” column, without using a SQL aggregate like MAX">
-<meta name="keywords" content="SQL">
+  <meta name="description" content="Data Practice 5IntroducitonOne site requires SMS validation after registration.     Email SMS     time time   user_id user_id   email_id text_id    action     Questions Get daily registration count. G">
+<meta name="keywords" content="Pandas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL Practice 3">
-<meta property="og:url" content="http://xiaohan.me/2018/05/07/SQL-Practice-3/index.html">
+<meta property="og:title" content="Data Practice 5">
+<meta property="og:url" content="http://xiaohan.me/2018/05/08/Data-Practice-5/index.html">
 <meta property="og:site_name" content="CodeMySky&#39;s Blog">
-<meta property="og:description" content="SQL Practice 3QuestionGiven this table 123CREATE TABLE Compare (    Numbers INT) Write a SQL query that will return the maximum value from the “Numbers” column, without using a SQL aggregate like MAX">
+<meta property="og:description" content="Data Practice 5IntroducitonOne site requires SMS validation after registration.     Email SMS     time time   user_id user_id   email_id text_id    action     Questions Get daily registration count. G">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-08T04:25:21.945Z">
+<meta property="og:updated_time" content="2018-05-08T16:40:49.141Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQL Practice 3">
-<meta name="twitter:description" content="SQL Practice 3QuestionGiven this table 123CREATE TABLE Compare (    Numbers INT) Write a SQL query that will return the maximum value from the “Numbers” column, without using a SQL aggregate like MAX">
+<meta name="twitter:title" content="Data Practice 5">
+<meta name="twitter:description" content="Data Practice 5IntroducitonOne site requires SMS validation after registration.     Email SMS     time time   user_id user_id   email_id text_id    action     Questions Get daily registration count. G">
   
     <link rel="alternative" href="/atom.xml" title="CodeMySky&#39;s Blog" type="application/atom+xml">
   
@@ -164,11 +164,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-SQL-Practice-3" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Data-Practice-5" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/05/07/SQL-Practice-3/" class="article-date">
-  	<time datetime="2018-05-08T03:44:31.000Z" itemprop="datePublished">2018-05-07</time>
+      <a href="/2018/05/08/Data-Practice-5/" class="article-date">
+  	<time datetime="2018-05-08T15:28:42.000Z" itemprop="datePublished">2018-05-08</time>
 </a>
     </div>
   
@@ -181,7 +181,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      SQL Practice 3
+      Data Practice 5
     </h1>
   
 
@@ -190,7 +190,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas/">Pandas</a></li></ul>
 	</div>
 
         
@@ -201,17 +201,49 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SQL-Practice-3"><a href="#SQL-Practice-3" class="headerlink" title="SQL Practice 3"></a>SQL Practice 3</h1><h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given this table</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Compare (</span><br><span class="line">    Numbers <span class="built_in">INT</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>Write a SQL query that will return the maximum value from the “Numbers” column, without using a SQL aggregate like MAX or MIN.</p>
-<h2 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h2><p>There are two ways to do that, first we can use a self join</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Numbers</span><br><span class="line"><span class="keyword">FROM</span> Compare</span><br><span class="line"><span class="keyword">WHERE</span> Numbers <span class="keyword">NOT</span> <span class="keyword">IN</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> Smaller.Numbers</span><br><span class="line">    <span class="keyword">FROM</span> Compare <span class="keyword">AS</span> Larger</span><br><span class="line">    <span class="keyword">JOIN</span> Compare <span class="keyword">AS</span> Smaller <span class="keyword">ON</span> Smaller.Numbers &lt; Larger.Numbers</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>Second, which is easier, we can sort and limit the number of returned results.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Numbers</span><br><span class="line"><span class="keyword">FROM</span> Compare</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Numbers <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a href="https://www.programmerinterview.com/index.php/database-sql/find-maximum-value-without-using-aggregate/" target="_blank" rel="noopener">https://www.programmerinterview.com/index.php/database-sql/find-maximum-value-without-using-aggregate/</a></li>
+        <h1 id="Data-Practice-5"><a href="#Data-Practice-5" class="headerlink" title="Data Practice 5"></a>Data Practice 5</h1><h2 id="Introduciton"><a href="#Introduciton" class="headerlink" title="Introduciton"></a>Introduciton</h2><p>One site requires SMS validation after registration.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Email</th>
+<th>SMS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time</td>
+<td>time</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>user_id</td>
+</tr>
+<tr>
+<td>email_id</td>
+<td>text_id</td>
+</tr>
+<tr>
+<td></td>
+<td>action</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><ul>
+<li>Get daily registration count.</li>
+<li>Get the number of registered users who passed the SMS validation</li>
+<li>Get the number of people who validated on next day.</li>
+<li>Get the avarage time between registration to validation.</li>
 </ul>
-
+<h2 id="Answers"><a href="#Answers" class="headerlink" title="Answers"></a>Answers</h2><ul>
+<li>Follow up question: does one user only have one registration email?</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Get daily registration count</span></span><br><span class="line">email_df.loc[:, <span class="string">'reg_date'</span>] = email_df.time.dt.date</span><br><span class="line">daily_reg_count = email_df.groupby(<span class="string">'reg_date'</span>).user_id.count()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Get the number of registered users who passed the SMS validation</span></span><br><span class="line">validated_sms_df = sms_df.loc[sms_df.action == <span class="string">'validated'</span>, :]</span><br><span class="line">joined_df = email_df.merge(validated_sms_df, on=<span class="string">'user_id'</span>, how=<span class="string">'left'</span>)</span><br><span class="line">validated_user = joined_df.loc[joined_df.action.notnull(), :]</span><br><span class="line">validated_user_count = validated_user.user_id.count()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Get the number of people who validated on next day.</span></span><br><span class="line">email_df.loc[:, <span class="string">'reg_date'</span>] = email_df.time.dt.date</span><br><span class="line">validated_sms_df = sms_df.loc[sms_df.action == <span class="string">'validated'</span>, :].copy()</span><br><span class="line">validated_sms_df.loc[:, <span class="string">'validate_date'</span>] = validated_sms_df.time.dt.date</span><br><span class="line">joined_df = validated_sms_df.merge(email_df, on=<span class="string">'user_id'</span>, how=<span class="string">'left'</span>)</span><br><span class="line">next_day_validation_count = joined_df.loc[(joined_df.validate_date - joined_df.reg_date) == pd.Timedelta(days=<span class="number">1</span>), :].user_id.count()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Get the avarage time between registration to validation.</span></span><br><span class="line">avg_validation_wait = (joined_df.time_x - joined_df.time_y).mean()</span><br></pre></td></tr></table></figure>
+<h2 id="Data-Preperation"><a href="#Data-Preperation" class="headerlink" title="Data Preperation"></a>Data Preperation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">email_df = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'time'</span>: pd.to_datetime([<span class="string">'2018-05-01 08:00'</span>, <span class="string">'2018-05-02 08:20'</span>, <span class="string">'2018-05-02 08:50'</span>]),</span><br><span class="line">        <span class="string">'user_id'</span>: [<span class="string">'001'</span>, <span class="string">'002'</span>, <span class="string">'003'</span>],</span><br><span class="line">        <span class="string">'email_id'</span>: [<span class="string">'1@a'</span>, <span class="string">'2@b'</span>, <span class="string">'3@c'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">sms_df = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'time'</span>: pd.to_datetime([<span class="string">'2018-05-01 08:05'</span>, <span class="string">'2018-05-02 08:25'</span>, <span class="string">'2018-05-03 01:12'</span>]),</span><br><span class="line">        <span class="string">'user_id'</span>: [<span class="string">'001'</span>, <span class="string">'002'</span>, <span class="string">'002'</span>],</span><br><span class="line">        <span class="string">'text_id'</span>: [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>],</span><br><span class="line">        <span class="string">'action'</span>: [<span class="string">'validated'</span>, <span class="string">'failed'</span>, <span class="string">'validated'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -220,18 +252,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/05/07/SQL-Practice-4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          SQL Practice 4
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/05/SQL-Practice-2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SQL Practice 2</div>
+    <a href="/2018/05/07/SQL-Practice-4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQL Practice 4</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
